@@ -14,7 +14,8 @@ Ai was also used to assist with generating user stories, the content generated w
 
 ![wireframe](/assets/readme/image_2024-11-27_123117416.png)
 We decided on this design based on the colours of other market-leading text games (Wordle, NYTimes and Sudoku.com) 
-Alternate look was also proposed as refinements
+Alternate looks were also proposed as refinements
+
 ![Wireframe2](/assets/readme/image_2024-11-27_141343866_480.png)
 ![Wireframe3](/assets/readme/new_phone_480.png)
 
