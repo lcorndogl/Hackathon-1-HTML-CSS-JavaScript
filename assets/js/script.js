@@ -3,6 +3,7 @@ const guessedLetters = [];
 let question = '';
 let answer = '';
 let currentScore = 0;
+let highScore = 0;
 
 window.document.addEventListener('DOMContentLoaded', function () {
     //This code will run after the page loads
