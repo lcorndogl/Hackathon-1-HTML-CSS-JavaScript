@@ -10,7 +10,11 @@ cheatButton.addEventListener('click', function() {
     if currentScore >= cheatCost {
         currentScore -= cheatCost;
         cheat();
-})
+        } else {
+            //check syntax
+            cheatButton.setAttribute('innertext', 'Not enough points');
+        }
+    })
 
 let submitButton = document.getElementById('submit-button')
 submitButton.addEventListener('click', function() {
