@@ -101,6 +101,7 @@ function getQuestion() {
  * The question is passed in and it returns the answer
  */
 function getAnswer(question) {
+    // Array of the questions and the answers attached to them
     const answers = [
         { question: "What is the capital of France?", answer: "Paris" },
         { question: "What is the largest planet in our solar system?", answer: "Jupiter" },
