@@ -178,12 +178,13 @@ function guessAnswer(guess) {
     //Array of valid guesses
     const validGuess = [].concat(vowels, consonants, " ");
 
+    console.log(guess)
     //check if the guess is valid
-    for (char of guess) {
-        if (!char.includes(validGuess)) {
+    for (let char of guess) {
+        if (!validGuess.includes(char.toLowerCase())) {
             console.log('Invalid guess');
             return;
-        }
+        } console.log("Char check ran");
     }
 
     // Checks if the user has guessed the entire answer
@@ -207,7 +208,7 @@ function guessAnswer(guess) {
 
         // check if the user's guess is in the answer, if it is reveal the letter in the answer
         if (answer.toLowerCase().includes(guess.toLowerCase())) {
-            console.log('Correct guess');
+            revealLetter(guess.toLowerCase())
         } else {
             console.log('Incorrect guess');
         }
@@ -224,6 +225,12 @@ function guessAnswer(guess) {
             console.log('Consonant');
         }
     }
+}
+
+function revealLetter(guess) {
+    console.log('Correct guess');
+    
+
 }
 
 /** This function should be run when the user clicks the cheat button
