@@ -10,24 +10,24 @@ window.document.addEventListener('DOMContentLoaded', function () {
 
 })
 
-// let cheatButton = document.getElementById('cheat-button')
-// cheatButton.addEventListener('click', function () {
-//     //Cheat button funtionality goes here
-//     let cheatCost = 100;
-//     if (currentScore >= cheatCost) {
-//         currentScore -= cheatCost;
-//         cheat();
-//     } else {
-//         //check syntax
-//         cheatButton.setAttribute('innertext', 'Not enough points');
-//     }
-// })
+let cheatButton = document.getElementById('cheat-button')
+cheatButton.addEventListener('click', function () {
+    //Cheat button funtionality goes here
+    let cheatCost = 100;
+    if (currentScore >= cheatCost) {
+        currentScore -= cheatCost;
+        cheat();
+    } else {
+        //check syntax
+        cheatButton.setAttribute('innertext', 'Not enough points');
+    }
+})
 
-// let submitButton = document.getElementById('submit-button')
-// submitButton.addEventListener('click', function () {
-//     //Submit button funtionality goes here
+let submitButton = document.getElementById('submit-button')
+submitButton.addEventListener('click', function () {
+    //Submit button funtionality goes here
 
-// })
+})
 
 /** This function is run whenever a new question is generated
  * It gets the question and answer and modifies the DOM to display it */
