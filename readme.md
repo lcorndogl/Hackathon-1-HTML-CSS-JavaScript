@@ -1,6 +1,6 @@
-##Contents
+## Contents
 -[proposal](#proposal)
--[ai integration](#AI integration)
+-[ai integration](#AI_integration)
 -[wireframing](#wireframing)
 
 ## Proposal
