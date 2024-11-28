@@ -1,35 +1,58 @@
-window.document.addEventListener('DOMContentLoaded', function() {
-//This code will run after the page loads
+// Global variables accessed by multiple functions
+const guessedLetters = [];
+let question = '';
+let answer = '';
+let currentScore = 0;
+let highScore = 0;
+
+window.document.addEventListener('DOMContentLoaded', function () {
+    //This code will run after the page loads
 
 })
 
-let cheatButton = document.getElementById('cheat-button')
-cheatButton.addEventListener('click', function() {
-    //Cheat button funtionality goes here
-    let cheatCost = 100;
-    if (currentScore >= cheatCost) {
-        currentScore -= cheatCost;
-        cheat();
-        } else {
-            //check syntax
-            cheatButton.setAttribute('innertext', 'Not enough points');
-        }
-    })
+// let cheatButton = document.getElementById('cheat-button')
+// cheatButton.addEventListener('click', function () {
+//     //Cheat button funtionality goes here
+//     let cheatCost = 100;
+//     if (currentScore >= cheatCost) {
+//         currentScore -= cheatCost;
+//         cheat();
+//     } else {
+//         //check syntax
+//         cheatButton.setAttribute('innertext', 'Not enough points');
+//     }
+// })
 
-let submitButton = document.getElementById('submit-button')
-submitButton.addEventListener('click', function() {
-    //Submit button funtionality goes here
+// let submitButton = document.getElementById('submit-button')
+// submitButton.addEventListener('click', function () {
+//     //Submit button funtionality goes here
 
-})
+// })
 
+/** This function is run whenever a new question is generated
+ * It gets the question and answer and modifies the DOM to display it */
 function startGame() {
-    const question = getQuestion();
-    const answer = getAnswer(question);
-    console.log(question);
-    console.log(answer);
+    // Calls the getQuestion function to get a question
+    question = getQuestion();
+    // Calls the getAnswer function to get the answer to the question
+    answer = getAnswer(question);
+
+    // Console log to ensure the question and answers are retrieved correctly
+    // console.log(question);
+    // console.log(answer);
+
+    // console.log(guessedLetters);
+    // console.log(guessedLetters.length);
+
+    // Reset the guessed letters array
+    guessedLetters.length = 0;
+    // console.log(guessedLetters.length);
+    // console.log(guessedLetters);
 }
 
+/** This function contains the questions and will return one at random */
 function getQuestion() {
+    // Array of questions
     const questions = [
         "What is the capital of France?",
         "What is the largest planet in our solar system?",
@@ -77,11 +100,19 @@ function getQuestion() {
         "What is the smallest country in Africa?",
         "What is the largest desert in Africa?",
         "What is the smallest desert in Africa?"];
-        const questionNo = Math.floor(Math.random() * questions.length);
+
+    // Generate a random number between 0 and the length of the questions array
+    const questionNo = Math.floor(Math.random() * questions.length);
+
+    // return the question that has been randomly selected
     return questions[questionNo];
 }
 
+/** This function contains the questions and answers,
+ * The question is passed in and it returns the answer
+ */
 function getAnswer(question) {
+    // Array of the questions and the answers attached to them
     const answers = [
         { question: "What is the capital of France?", answer: "Paris" },
         { question: "What is the largest planet in our solar system?", answer: "Jupiter" },
@@ -130,14 +161,76 @@ function getAnswer(question) {
         { question: "What is the largest desert in Africa?", answer: "Sahara Desert" },
         { question: "What is the smallest desert in Africa?", answer: "Red Desert" }
     ]
+    // Find the answer that corresponds to the question that was passed in
+    // Created by CoPilot
     const qAnswer = answers.find(ans => ans.question === question);
     return qAnswer.answer;
 }
 
-function makeGuess() {
+/** This function should be run when the user makes a guess
+ * Guesses should be triggered by clicking the enter key
+ * This function should check if the guess is correct and display the result
+ */
+function guessAnswer(guess) {
+    // Arrays containing the vowels and consonants
+    const vowels = ['a', 'e', 'i', 'o', 'u'];
+    const consonants = ['b', 'c', 'd', 'f', 'g', 'h', 'j', 'k', 'l', 'm', 'n', 'p', 'q', 'r', 's', 't', 'v', 'w', 'x', 'y', 'z'];
+    //Array of valid guesses
+    const validGuess = [].concat(vowels, consonants, " ");
 
+    //check if the guess is valid
+    for (char of guess) {
+        if (!char.includes(validGuess)) {
+            console.log('Invalid guess');
+            return;
+        }
+    }
+
+    // Checks if the user has guessed the entire answer
+    console.log(guess.trim());
+    if (guess.trim().length > 1) {
+        // Check if the answer is correct and display Solved or Incorrect
+        if (guess.toLowerCase() === answer.toLowerCase()) {
+            console.log('SOLVED!');
+        } else {
+            console.log('INCORRECT!');
+        }
+    } else {
+        // check if the user has already guessed that letter, if they have display an error
+        console.log(guessedLetters);
+        if (guessedLetters.includes(guess.toLowerCase())) {
+            console.log('You have already guessed that letter');
+        } else {
+            guessedLetters.push(guess.toLowerCase());
+            console.log(guessedLetters);
+        }
+
+        // check if the user's guess is in the answer, if it is reveal the letter in the answer
+        if (answer.toLowerCase().includes(guess.toLowerCase())) {
+            console.log('Correct guess');
+        } else {
+            console.log('Incorrect guess');
+        }
+
+        // check if the user's guess is a vowel, if it is subtract 50 points from the user's score
+        if (vowels.includes(guess.toLowerCase())) {
+            console.log('Vowel');
+            if (currentScore >= 50) {
+                currentScore -= 50;
+            } else {
+                console.log('Not enough points');
+            }
+        } else {
+            console.log('Consonant');
+        }
+    }
 }
 
+/** This function should be run when the user clicks the cheat button
+ * It should check if the user has enough points/hearts to cheat
+ * If the user does it will reveal a letter of the answer
+ */
 function cheat() {
 
+    return null;
 }
