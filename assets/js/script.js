@@ -149,6 +149,8 @@ function getAnswer(question) {
         { question: "What is the largest desert in Africa?", answer: "Sahara Desert" },
         { question: "What is the smallest desert in Africa?", answer: "Red Desert" }
     ]
+    // Find the answer that corresponds to the question that was passed in
+    // Created by CoPilot
     const qAnswer = answers.find(ans => ans.question === question);
     return qAnswer.answer;
 }
