@@ -1,7 +1,3 @@
-HTML/CSS - Abdulmajeed
-JavaScript - Michael (logic)
-Grab elements/modify elements - Steve
-
 window.document.addEventListener('DOMContentLoaded', function () {
     //This code will run after the page loads
 
@@ -160,7 +156,7 @@ function getAnswer(question) {
  * Guesses should be triggered by clicking the enter key
  */
 function makeGuess() {
-
+    return null;
 }
 
 /** This function should be run when the user clicks the cheat button
@@ -168,5 +164,5 @@ function makeGuess() {
  * If the user does it will reveal a letter of the answer
  */
 function cheat() {
-
+    return null;
 }
