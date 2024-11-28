@@ -6,7 +6,10 @@ window.document.addEventListener('DOMContentLoaded', function() {
 let cheatButton = document.getElementById('cheat-button')
 cheatButton.addEventListener('click', function() {
     //Cheat button funtionality goes here
-
+    let cheatCost =10;
+    if currentScore >= cheatCost {
+        currentScore -= cheatCost;
+        cheat();
 })
 
 let submitButton = document.getElementById('submit-button')
