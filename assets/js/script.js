@@ -1,35 +1,47 @@
-window.document.addEventListener('DOMContentLoaded', function() {
-//This code will run after the page loads
+HTML/CSS - Abdulmajeed
+JavaScript - Michael (logic)
+Grab elements/modify elements - Steve
+
+window.document.addEventListener('DOMContentLoaded', function () {
+    //This code will run after the page loads
 
 })
 
 let cheatButton = document.getElementById('cheat-button')
-cheatButton.addEventListener('click', function() {
+cheatButton.addEventListener('click', function () {
     //Cheat button funtionality goes here
     let cheatCost = 100;
     if (currentScore >= cheatCost) {
         currentScore -= cheatCost;
         cheat();
-        } else {
-            //check syntax
-            cheatButton.setAttribute('innertext', 'Not enough points');
-        }
-    })
+    } else {
+        //check syntax
+        cheatButton.setAttribute('innertext', 'Not enough points');
+    }
+})
 
 let submitButton = document.getElementById('submit-button')
-submitButton.addEventListener('click', function() {
+submitButton.addEventListener('click', function () {
     //Submit button funtionality goes here
 
 })
 
+/** This function is run whenever a new question is generated
+ * It gets the question and answer and modifies the DOM to display it */
 function startGame() {
+    // Calls the getQuestion function to get a question
     const question = getQuestion();
+    // Calls the getAnswer function to get the answer to the question
     const answer = getAnswer(question);
+
+    // Console log to ensure the question and answers are retrieved correctly
     console.log(question);
     console.log(answer);
 }
 
+/** This function contains the questions and will return one at random */
 function getQuestion() {
+    // Array of questions
     const questions = [
         "What is the capital of France?",
         "What is the largest planet in our solar system?",
@@ -77,10 +89,17 @@ function getQuestion() {
         "What is the smallest country in Africa?",
         "What is the largest desert in Africa?",
         "What is the smallest desert in Africa?"];
-        const questionNo = Math.floor(Math.random() * questions.length);
+
+    // Generate a random number between 0 and the length of the questions array
+    const questionNo = Math.floor(Math.random() * questions.length);
+
+    // return the question that has been randomly selected
     return questions[questionNo];
 }
 
+/** This function contains the questions and answers,
+ * The question is passed in and it returns the answer
+ */
 function getAnswer(question) {
     const answers = [
         { question: "What is the capital of France?", answer: "Paris" },
@@ -134,10 +153,17 @@ function getAnswer(question) {
     return qAnswer.answer;
 }
 
+/** This function should be run when the user makes a guess
+ * Guesses should be triggered by clicking the enter key
+ */
 function makeGuess() {
 
 }
 
+/** This function should be run when the user clicks the cheat button
+ * It should check if the user has enough points/hearts to cheat
+ * If the user does it will reveal a letter of the answer
+ */
 function cheat() {
 
 }
