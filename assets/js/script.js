@@ -174,29 +174,42 @@ function guessLetter(guess) {
     // Arrays containing the vowels and consonants
     const vowels = ['a', 'e', 'i', 'o', 'u'];
     const consonants = ['b', 'c', 'd', 'f', 'g', 'h', 'j', 'k', 'l', 'm', 'n', 'p', 'q', 'r', 's', 't', 'v', 'w', 'x', 'y', 'z'];
-    // Array containing already guessed letters
-
-console.log(guessedLetters);
-guessedLetters.push(guess);
-console.log(guessedLetters);
-    // Get the user's guess
 
     // check if the user has already guessed that letter, if they have display an error
+    console.log(guessedLetters);
+
+    if (guessedLetters.includes(guess.toLowerCase())) {
+        console.log('You have already guessed that letter');
+    } else {
+        guessedLetters.push(guess.toLowerCase());
+        console.log(guessedLetters);
+    }
 
     // check if the user's guess is in the answer, if it is reveal the letter in the answer
-
+    if (answer.toLowerCase().includes(guess.toLowerCase())) {
+        console.log('Correct guess');
+    } else {
+        console.log('Incorrect guess');
+    }
 
     // check if the user's guess is a vowel, if it is subtract 50 points from the user's score
-
-
-    return null;
+    if (vowels.includes(guess.toLowerCase())) {
+        console.log('Vowel');
+        if (currentScore >= 50) {
+            currentScore -= 50;
+        } else {
+            console.log('Not enough points');
+        }
+    } else {
+        console.log('Consonant');
+    }
 }
 
 /** This function should be run when the user guesses a letter
  * Guesses should be triggered by clicking the enter key
  */
 function guessAnswer(guess) {
-    
+
 }
 /** This function should be run when the user clicks the cheat button
  * It should check if the user has enough points/hearts to cheat
