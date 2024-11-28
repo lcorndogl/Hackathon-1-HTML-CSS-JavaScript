@@ -2,15 +2,15 @@ h1 {
     /*rules for header text below*/
 }
 
-.question {
+#question {
     /*rules for question h2 text below*/
 }
 
-.worddisplay {
+#worddisplay {
     /*rules for word display text below*/
 }
 
-.userinputs {
+#userinputs {
     /*rules for user inputs div below (style will apply to both text box and submit button)*/
 }
 
