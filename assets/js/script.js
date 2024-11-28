@@ -152,17 +152,40 @@ function getAnswer(question) {
     return qAnswer.answer;
 }
 
-/** This function should be run when the user makes a guess
+/** This function should be run when the user guesses a letter
  * Guesses should be triggered by clicking the enter key
  */
-function makeGuess() {
+function guessLetter(guess) {
+    // Arrays containing the vowels and consonants
+    const vowels = ['a', 'e', 'i', 'o', 'u'];
+    const consonants = ['b', 'c', 'd', 'f', 'g', 'h', 'j', 'k', 'l', 'm', 'n', 'p', 'q', 'r', 's', 't', 'v', 'w', 'x', 'y', 'z'];
+    // Array containing already guessed letters
+    const guessedLetters = [];
+
+    // Get the user's guess
+
+    // check if the user has already guessed that letter, if they have display an error
+
+    // check if the user's guess is in the answer, if it is reveal the letter in the answer
+
+
+    // check if the user's guess is a vowel, if it is subtract 50 points from the user's score
+
+
     return null;
 }
 
+/** This function should be run when the user guesses a letter
+ * Guesses should be triggered by clicking the enter key
+ */
+function guessAnswer(guess) {
+    
+}
 /** This function should be run when the user clicks the cheat button
  * It should check if the user has enough points/hearts to cheat
  * If the user does it will reveal a letter of the answer
  */
 function cheat() {
+
     return null;
 }
