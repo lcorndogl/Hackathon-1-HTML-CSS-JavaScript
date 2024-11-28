@@ -1,3 +1,9 @@
+// Global variables accessed by multiple functions
+const guessedLetters = [];
+let question = '';
+let answer = '';
+let currentScore = 0;
+
 window.document.addEventListener('DOMContentLoaded', function () {
     //This code will run after the page loads
 
@@ -26,13 +32,21 @@ submitButton.addEventListener('click', function () {
  * It gets the question and answer and modifies the DOM to display it */
 function startGame() {
     // Calls the getQuestion function to get a question
-    const question = getQuestion();
+    question = getQuestion();
     // Calls the getAnswer function to get the answer to the question
-    const answer = getAnswer(question);
+    answer = getAnswer(question);
 
     // Console log to ensure the question and answers are retrieved correctly
-    console.log(question);
-    console.log(answer);
+    // console.log(question);
+    // console.log(answer);
+
+    // console.log(guessedLetters);
+    // console.log(guessedLetters.length);
+
+    // Reset the guessed letters array
+    guessedLetters.length = 0;
+    // console.log(guessedLetters.length);
+    // console.log(guessedLetters);
 }
 
 /** This function contains the questions and will return one at random */
@@ -160,8 +174,10 @@ function guessLetter(guess) {
     const vowels = ['a', 'e', 'i', 'o', 'u'];
     const consonants = ['b', 'c', 'd', 'f', 'g', 'h', 'j', 'k', 'l', 'm', 'n', 'p', 'q', 'r', 's', 't', 'v', 'w', 'x', 'y', 'z'];
     // Array containing already guessed letters
-    const guessedLetters = [];
 
+console.log(guessedLetters);
+guessedLetters.push(guess);
+console.log(guessedLetters);
     // Get the user's guess
 
     // check if the user has already guessed that letter, if they have display an error
