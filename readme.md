@@ -2,7 +2,7 @@
 
 -[proposal](#proposal)
 
--[ai integration](#AI_integration)
+-[ai integration][AI]
 
 -[wireframing](#wireframing)
 
@@ -27,6 +27,15 @@ Alternate looks were also proposed as refinements
 Demonstrations of the scalability of the site to larger devices are wireframed below
 ![Wireframe4](/assets/readme/image_2024-11-27_142015802_720.png)
 
+## Troubleshooting
+![Wireframe](/assets/readme/bugs/CssAifile2.png)
+
+The above demonstrates copilot missing a linked asset, and taking it's best guess at the filepath for the local CSS. This is a persistent issue with ai-generated links as demonstrated below.
+
+![Wireframe](/assets/readme/bugs/JsAifile1.png)
+
 ## Credits
 
 [Stack Overflow - How to form an array of question/answer pairs](https://stackoverflow.com/questions/37252041/storing-quiz-questions-in-array-of-objects)
+
+[aiIntegrationDefinition]: #AI
