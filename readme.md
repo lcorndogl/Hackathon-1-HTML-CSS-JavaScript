@@ -17,22 +17,22 @@ Ai was also used to assist with generating user stories, the content generated w
 
 ## Wireframing
 
-![wireframe](/assets/readme/image_2024-11-27_123117416.png)
+![wireframe](docs/image_2024-11-27_123117416.png)
 We decided on this design based on the colours of other market-leading text games (Wordle, NYTimes and Sudoku.com). 
 Alternate looks were also proposed as refinements
 
-![Wireframe2](/assets/readme/image_2024-11-27_141343866_480.png)
-![Wireframe3](/assets/readme/new_phone_480.png)
+![Wireframe2](docs/image_2024-11-27_141343866_480.png)
+![Wireframe3](docs/new_phone_480.png)
 
 Demonstrations of the scalability of the site to larger devices are wireframed below
-![Wireframe4](/assets/readme/image_2024-11-27_142015802_720.png)
+![Wireframe4](docs/image_2024-11-27_142015802_720.png)
 
 ## Troubleshooting
-![Wireframe](/assets/readme/bugs/CssAifile2.png)
+![Wireframe](docs/bugs/CssAifile2.png)
 
 The above demonstrates copilot missing a linked asset, and taking it's best guess at the filepath for the local CSS. This is a persistent issue with ai-generated links as demonstrated below.
 
-![Wireframe](/assets/readme/bugs/JsAifile1.png)
+![Wireframe](docs/bugs/JsAifile1.png)
 
 ## Credits
 
