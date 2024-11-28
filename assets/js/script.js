@@ -18,7 +18,8 @@ submitButton.addEventListener('click', function() {
 function startGame() {
     const question = getQuestion();
     const answer = getAnswer(question);
-
+    console.log(question);
+    console.log(answer);
 }
 
 function getQuestion() {
@@ -122,6 +123,8 @@ function getAnswer(question) {
         { question: "What is the largest desert in Africa?", answer: "Sahara Desert" },
         { question: "What is the smallest desert in Africa?", answer: "Red Desert" }
     ]
+    const qAnswer = answers.find(ans => ans.question === question);
+    return qAnswer.answer;
 }
 
 function makeGuess() {
