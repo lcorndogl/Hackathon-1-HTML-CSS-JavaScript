@@ -175,6 +175,16 @@ function guessAnswer(guess) {
     // Arrays containing the vowels and consonants
     const vowels = ['a', 'e', 'i', 'o', 'u'];
     const consonants = ['b', 'c', 'd', 'f', 'g', 'h', 'j', 'k', 'l', 'm', 'n', 'p', 'q', 'r', 's', 't', 'v', 'w', 'x', 'y', 'z'];
+    //Array of valid guesses
+    const validGuess = [].concat(vowels, consonants, " ");
+
+    //check if the guess is valid
+    for (char of guess) {
+        if (!char.includes(validGuess)) {
+            console.log('Invalid guess');
+            return;
+        }
+    }
 
     // Checks if the user has guessed the entire answer
     console.log(guess.trim());
@@ -188,7 +198,6 @@ function guessAnswer(guess) {
     } else {
         // check if the user has already guessed that letter, if they have display an error
         console.log(guessedLetters);
-
         if (guessedLetters.includes(guess.toLowerCase())) {
             console.log('You have already guessed that letter');
         } else {
