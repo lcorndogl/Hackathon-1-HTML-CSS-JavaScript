@@ -1,12 +1,17 @@
 ## Contents
+
 -[proposal](#proposal)
+
 -[ai integration](#AI_integration)
+
 -[wireframing](#wireframing)
 
 ## Proposal
+
 We will create a text-phrase guessing game. The game will present an common, idiomatic phrase, and the user will guess vowels and consonants, or attempt to guess the phrase as a whole. Guesses will be tracked, and a score calculated at depending on how many letters were guessed before the correct answer was arrived at.
 
 ## AI Integration 
+
 As a useful tool for sampling a zeitgeist of English text, ai was helpful for presenting uncommon and common idiomatic phrases.
 Ai was also used to assist with generating user stories, the content generated was hand edited for suitability. 
 
@@ -21,3 +26,7 @@ Alternate looks were also proposed as refinements
 
 Demonstrations of the scalability of the site to larger devices are wireframed below
 ![Wireframe4](/assets/readme/image_2024-11-27_142015802_720.png)
+
+## Credits
+
+[Stack Overflow - How to form an array of question/answer pairs](https://stackoverflow.com/questions/37252041/storing-quiz-questions-in-array-of-objects)
