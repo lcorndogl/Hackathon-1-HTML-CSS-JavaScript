@@ -17,27 +17,47 @@
     <script src="assets/js/script.js"></script>
 </head>
 
-<body>
-    <div class="Foundation">
-    <!-- Game Title -->
-    <h1 class="game title">Game Name</h1>
-     <!-- Highest Score Label -->
-    <div class="hs">
-    <label for="highestScore" class="label">Highest Score</label>
+<body class="bg-light">
+    <div class="container text-center py-5">
+        <!-- Game Title -->
+     <h1 class="mb-4">Game Name</h1>
+ <!-- Highest score -->
+       <div class="row justify-content-center">
+            <div class="col-md-3 text-start">
+             <div class="mb-3">
+
+                    <label for="highestScore" class="form-label">Highest Score</label>
+             </div>
+                 <!-- Previous attempts board -->
+                <div>
+                    <h5>Previous Attempts</h5>
+                    <ul class="list-group">
+                        <li class="list-group-item">Attempt 1</li>
+
+                        <li class="list-group-item">Attempt 2</li>
+
+                    
+                        <li class="list-group-item">Attempt 3</li>
+                    </ul>
+                </div>
+                <button id="newGameButton" class="btn btn-primary mt-3">New Game</button>
+            </div>
+
+            <!-- Game ui -->
+            <div class="col-md-6">
+                <h2 id="question" class="mb-4">Question</h2>
+                <div id="wordDisplay" class="mb-4">_ _ _ _ _</div>
+                <div id="lettersUsed" class="mt-4">
+                    <strong>Letters Used:</strong> A, B, C
+                </div>
+            </div>
+
+            
+     <div class="col-md-3 text-end">
+                <button id="cheatButton" class="btn btn-warning mb-3">Cheat</button>
+                <button id="instructionsButton" class="btn btn-secondary">Instructions</button>
+     </div>
     </div>
-    <!-- Instruction Button for the right side -->
-    <div>
-     <button id="cheatButton" class="Cheat-button">Cheat</button>
-     <button id="instructionsButton" class="buttons">Instructions</button>
-    </div>
-    </div>
-    <!-- Game Display -->
-    <div class="Game ui">
-    <!-- Question and the word display -->
-    <h2 id="question" class="game">Question</h2>
-    <div id="wordDisplay" class="game">_ _ _ _ _</div>
-    <div id="lettersUsed" class="mt-4">
-    <strong>Letters Used:</strong> A, B, C
     </div>
 
 
