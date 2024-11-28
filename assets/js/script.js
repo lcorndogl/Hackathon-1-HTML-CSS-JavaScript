@@ -6,8 +6,8 @@ window.document.addEventListener('DOMContentLoaded', function() {
 let cheatButton = document.getElementById('cheat-button')
 cheatButton.addEventListener('click', function() {
     //Cheat button funtionality goes here
-    let cheatCost =10;
-    if currentScore >= cheatCost {
+    let cheatCost = 100;
+    if (currentScore >= cheatCost) {
         currentScore -= cheatCost;
         cheat();
         } else {
@@ -25,7 +25,8 @@ submitButton.addEventListener('click', function() {
 function startGame() {
     const question = getQuestion();
     const answer = getAnswer(question);
-
+    console.log(question);
+    console.log(answer);
 }
 
 function getQuestion() {
@@ -76,6 +77,8 @@ function getQuestion() {
         "What is the smallest country in Africa?",
         "What is the largest desert in Africa?",
         "What is the smallest desert in Africa?"];
+        const questionNo = Math.floor(Math.random() * questions.length);
+    return questions[questionNo];
 }
 
 function getAnswer(question) {
@@ -127,6 +130,8 @@ function getAnswer(question) {
         { question: "What is the largest desert in Africa?", answer: "Sahara Desert" },
         { question: "What is the smallest desert in Africa?", answer: "Red Desert" }
     ]
+    const qAnswer = answers.find(ans => ans.question === question);
+    return qAnswer.answer;
 }
 
 function makeGuess() {
