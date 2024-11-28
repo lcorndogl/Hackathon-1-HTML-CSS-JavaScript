@@ -69,6 +69,8 @@ function getQuestion() {
         "What is the smallest country in Africa?",
         "What is the largest desert in Africa?",
         "What is the smallest desert in Africa?"];
+        const questionNo = Math.floor(Math.random() * questions.length);
+    return questions[questionNo];
 }
 
 function getAnswer(question) {
