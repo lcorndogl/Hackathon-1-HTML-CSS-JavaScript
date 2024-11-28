@@ -4,6 +4,7 @@ let question = '';
 let answer = '';
 let currentScore = 0;
 let highScore = 0;
+let guessedAnswer = [];
 
 window.document.addEventListener('DOMContentLoaded', function () {
     //This code will run after the page loads
@@ -36,6 +37,20 @@ function startGame() {
     question = getQuestion();
     // Calls the getAnswer function to get the answer to the question
     answer = getAnswer(question);
+    guessedAnswer.length = 0;
+    let i = 0;
+
+    for (char of answer) {
+        if (char === " ") {
+            guessedAnswer[i] = char;
+        }
+        else {
+            guessedAnswer[i] = "_";
+        }
+        console.log(char);
+        console.log(i);
+        i++;
+    }
 
     // Console log to ensure the question and answers are retrieved correctly
     // console.log(question);
@@ -229,7 +244,8 @@ function guessAnswer(guess) {
 
 function revealLetter(guess) {
     console.log('Correct guess');
-    
+
+    // Read answer, letter positions to reveal, for letter positions game reveal[locations], Steve.reveal
 
 }
 
