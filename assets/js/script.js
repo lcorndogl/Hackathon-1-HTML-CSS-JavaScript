@@ -49,6 +49,7 @@ window.document.addEventListener('DOMContentLoaded', function () {
         //Submit button funtionality goes here
         let guess = document.getElementById('user-guess').value;
         guessAnswer(guess);
+        document.getElementById('user-guess').value = '';
     })
 
 })
@@ -278,10 +279,10 @@ function guessAnswer(guess) {
         // check if the user's guess is in the answer, if it is reveal the letter in the answer
         if (answer.toLowerCase().includes(guess.toLowerCase())) {
             revealLetter(guess.toLowerCase())
-            score = score + 100;
+            currentScore += 100;
         } else {
             console.log('Incorrect guess');
-            score = score - 50;
+            currentScore -= 50;
         }
 
         // check if the user's guess is a vowel, if it is subtract 50 points from the user's score
