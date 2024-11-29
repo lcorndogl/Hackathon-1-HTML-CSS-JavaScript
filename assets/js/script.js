@@ -45,8 +45,9 @@ window.document.addEventListener('DOMContentLoaded', function () {
 function initialiseGame() {
     //Initialise the game
     startGame();
-    currentScore = 200;
+    currentScore = 20000;
     highScore = 0;
+    updateQuestionText();
     updateQuestionDisplay();
     // updateCurrentScoreDisplay();
     // updateHighScoreDisplay();
@@ -212,6 +213,12 @@ function updateQuestionDisplay() {
     questionDisplay.innerText = updateValue;
 }
 
+function updateQuestionText() {
+    // Update the question text
+    let questionText = document.getElementById('question');
+    questionText.innerText = question;
+}
+
 function updateCurrentScoreDisplay() {
     // Update the current score display
     document.getElementById('score-display').innerText = currentScore;
@@ -313,11 +320,13 @@ function cheat() {
         if (guessedAnswer[i] === "_") {
             stillBlank.push(i);
         }
-        
+        console.log(stillBlank);
     }
     let cheatCharPos = Math.floor(Math.random() * stillBlank.length);
     let cheatChar = answer[cheatCharPos];
     revealLetter(cheatChar);
+     //Update guessedAnswer with the cheat letter
+    guessedAnswer[cheatCharPos] = cheatChar;
 
     //If the revealLetter function also adds score, this function will do an appropriate subtraction imediately below
 }
