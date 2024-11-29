@@ -21,7 +21,7 @@ window.document.addEventListener('DOMContentLoaded', function () {
         //New game button funtionality goes here
        if (currentScore > highScore) {
            highScore = currentScore;
-           updateCurrentScoreDisplay();
+           updateHighScoreDisplay();
        }
         initialiseGame();
     })
@@ -249,8 +249,8 @@ function updateCurrentScoreDisplay() {
 
 function updateHighScoreDisplay() {
     // Update the current score display
-    alert("High Score: " + highScore);
-    document.getElementById('high-score').innerText = currentScore;
+    
+    document.getElementById('high-score').innerText = highScore;
     
 }
 
