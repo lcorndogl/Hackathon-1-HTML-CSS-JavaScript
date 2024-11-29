@@ -115,6 +115,7 @@ function startGame() {
     // console.log(guessedLetters);
     updateQuestionText();
     updateQuestionDisplay();
+    document.getElementById("letters-used").innerText = "None - Make your first guess!";
     document.getElementById('feedback').innerHTML = "<br>";
 }
 
@@ -253,6 +254,10 @@ function updateCurrentScoreDisplay() {
     document.getElementById('current-score').innerText = currentScore;
 
 }
+function updateLettersUsedDisplay() {
+    // Update the letters guessed in alphabetical order - Thanks steve for the sort idea!
+    document.getElementById("letters-used").innerText = guessedLetters.sort().join(", ");
+}
 
 function updateHighScoreDisplay() {
     // Update the current score display
@@ -281,6 +286,7 @@ function guessAnswer(guess) {
     //check if the guess is valid
     // check that the guess is not an empty string
     if (guess.length === 0) {
+        document.getElementById('feedback').innerHTML = "Guesses cannot be blank";
         console.log('Space');
         return;
     }
@@ -288,6 +294,7 @@ function guessAnswer(guess) {
     for (let char of guess) {
         if (!validGuess.includes(char.toLowerCase())) {
             console.log('Invalid guess');
+            document.getElementById('feedback').innerHTML = "Invalid guess - only letters are valid guesses unless you are guessing the entire answer where spaces are also valid";
             return;
         }
         console.log(guess.length);
@@ -309,13 +316,11 @@ function guessAnswer(guess) {
         }
     } else {
         // check if the user has already guessed that letter, if they have display an error
-        if (guessedLetters.includes(guess)) {
-            console.log("hitting already guessed letter statement");
-            return
-        }
         console.log(guessedLetters);
         if (guessedLetters.includes(guess.toLowerCase())) {
+            document.getElementById('feedback').innerHTML = "You have already guessed that letter, please try another";
             console.log('You have already guessed that letter');
+            return;
         } else {
             guessedLetters.push(guess.toLowerCase());
             console.log(guessedLetters);
@@ -336,11 +341,13 @@ function guessAnswer(guess) {
             if (currentScore >= 50) {
                 currentScore -= 50;
             } else {
+                document.getElementById('feedback').innerHTML = "Not enough points - Vowels cost 50 points";
                 console.log('Not enough points');
             }
         } else {
             console.log('Consonant');
         }
+
     }
 }
 
@@ -387,6 +394,10 @@ function cheat() {
 
     let cheatChar = answer[cheatCharPos];
     revealLetter(cheatChar);
+    //Add the cheat letter to the guessed letters array
+    guessedLetters.push(cheatChar);
+    updateLettersUsedDisplay();
+
     //Update guessedAnswer with the cheat letter
     guessedAnswer[cheatCharPos] = cheatChar;
 
