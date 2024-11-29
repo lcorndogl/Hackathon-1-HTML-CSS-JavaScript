@@ -341,6 +341,8 @@ function guessAnswer(guess) {
         } else {
             console.log('Consonant');
         }
+        // Update the letters guessed in alphabetical order - Thanks steve for the sort idea!
+        document.getElementById("letters-used").innerText = guessedLetters.sort().join(", ");
     }
 }
 
