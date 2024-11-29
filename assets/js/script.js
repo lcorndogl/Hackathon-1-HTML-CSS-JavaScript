@@ -19,11 +19,25 @@ window.document.addEventListener('DOMContentLoaded', function () {
     let newGameButton = document.getElementById('new-game-button');
     newGameButton.addEventListener("click", function () {
         //New game button funtionality goes here
+        // Declare variables for the attempts
+        let attempt3, attempt2, attempt1 = 0;
+        // Sets variables to the values of the preceeding attempts
+        attempt3 = document.getElementById('attempt-2').innerText;
+        attempt2 = document.getElementById('attempt-1').innerText;
+        attempt1 = document.getElementById('current-score').innerText;
+        console.log(attempt3, attempt2, attempt1); 
+
+        // Updates the attempts in the DOM
+        document.getElementById('attempt-3').innerText = attempt3;
+        document.getElementById('attempt-2').innerText = attempt2;
+        document.getElementById('attempt-1').innerText = attempt1;
+
         if (currentScore > highScore) {
             highScore = currentScore;
             updateHighScoreDisplay();
         }
         initialiseGame();
+
     })
 
 
@@ -52,16 +66,6 @@ window.document.addEventListener('DOMContentLoaded', function () {
             cheatButton.setAttribute('innertext', 'Not enough points');
         }
     })
-
-    let submitButton = document.getElementById('submit-button');
-    submitButton.addEventListener('click', function () {
-        //Submit button funtionality goes here
-        // let guess = document.getElementById('user-guess').value;
-        // guessAnswer(guess);
-        // updateCurrentScoreDisplay();
-        // document.getElementById('user-guess').value = '';
-    })
-
 })
 
 function initialiseGame() {
