@@ -252,10 +252,19 @@ function guessAnswer(guess) {
 }
 
 function revealLetter(guess) {
-    console.log('Correct guess');
-
-    // Read answer, letter positions to reveal, for letter positions game reveal[locations], Steve.reveal
-
+    positions = [];
+    let i=0;
+    for (char of answer){
+        if (char.toLowerCase() === guess.toLowerCase()){
+            positions.push(i);
+        }
+        i++;
+        console.log(positions);
+    }
+    for (i of positions){
+        guessedAnswer[i] = answer[i];
+    }
+    updateDisplay();
 }
 
 /** This function should be run when the user clicks the cheat button
