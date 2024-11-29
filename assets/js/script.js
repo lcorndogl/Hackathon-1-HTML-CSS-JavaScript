@@ -8,6 +8,7 @@ let guessedAnswer = [];
 
 window.document.addEventListener('DOMContentLoaded', function () {
     //This code will run after the page loads
+    initialiseGame();
 
 
 
@@ -39,6 +40,17 @@ window.document.addEventListener('DOMContentLoaded', function () {
 
 })
 
+function initialiseGame() {
+    //Initialise the game
+    startGame();
+    currentScore = 0;
+    highScore = 0;
+    updateQuestionDisplay();
+    // updateCurrentScoreDisplay();
+    // updateHighScoreDisplay();
+    document.getElementById('submit-button').innerText = "Next Question";
+}   
+
 /** This function is run whenever a new question is generated
  * It gets the question and answer and modifies the DOM to display it */
 function startGame() {
@@ -56,8 +68,8 @@ function startGame() {
         else {
             guessedAnswer[i] = "_";
         }
-        console.log(char);
-        console.log(i);
+        // console.log(char);
+        // console.log(i);
         i++;
     }
 
@@ -194,15 +206,15 @@ function getAnswer(question) {
 function updateQuestionDisplay() {
     // Update the question display
     let questionDisplay = document.getElementById('word-display');
-    let updateValue = guessedAnswer.join("");
+    let updateValue = guessedAnswer.join(" ");
     questionDisplay.innerText = updateValue;
 }
 
-function updateScoreDisplay() {
+function updateCurrentScoreDisplay() {
     // Update the current score display
-    let score = document.getElementById('score-display');
-    score.innerText = currentScore;
+    document.getElementById('score-display').innerText = currentScore;
 }
+
 
 /** This function should be run when the user makes a guess
  * Guesses should be triggered by clicking the enter key
