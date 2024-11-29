@@ -25,7 +25,7 @@ window.document.addEventListener('DOMContentLoaded', function () {
         attempt3 = document.getElementById('attempt-2').innerText;
         attempt2 = document.getElementById('attempt-1').innerText;
         attempt1 = document.getElementById('current-score').innerText;
-        console.log(attempt3, attempt2, attempt1); 
+        console.log(attempt3, attempt2, attempt1);
 
         // Updates the attempts in the DOM
         document.getElementById('attempt-3').innerText = attempt3;
@@ -115,6 +115,7 @@ function startGame() {
     // console.log(guessedLetters);
     updateQuestionText();
     updateQuestionDisplay();
+    document.getElementById('feedback').innerHTML = "<br>";
 }
 
 /** This function contains the questions and will return one at random */
@@ -191,7 +192,7 @@ function getAnswer(question) {
         { question: "What is the fastest land animal in the world?", answer: "Cheetah" },
         { question: "What is the fastest bird in the world?", answer: "Peregrine Falcon" },
         { question: "What is the fastest fish in the world?", answer: "Sailfish" },
-        { question: "What is the fastest mammal in the world?", answer: "Brazilian Free-tailed Bat" },
+        { question: "What is the fastest mammal in the world?", answer: "Brazilian Free tailed Bat" },
         { question: "What is the tallest mountain in the world?", answer: "Mount Everest" },
         { question: "What is the largest ocean in the world?", answer: "Pacific Ocean" },
         { question: "What is the smallest ocean in the world?", answer: "Arctic Ocean" },
@@ -272,8 +273,11 @@ function guessAnswer(guess) {
     //Array of valid guesses
     const validGuess = [].concat(vowels, consonants, " ");
 
+    // Reset feedback elements on next user action
     document.getElementById('cheat-button').innerText = 'Cheat';
+    document.getElementById('feedback').innerHTML = "<br>";
     console.log(guess)
+
     //check if the guess is valid
     // check that the guess is not an empty string
     if (guess.length === 0) {
@@ -288,7 +292,6 @@ function guessAnswer(guess) {
         }
         console.log(guess.length);
         console.log("Char check ran");
-
     }
 
     // Checks if the user has guessed the entire answer
@@ -296,8 +299,12 @@ function guessAnswer(guess) {
     if (guess.trim().length > 1) {
         // Check if the answer is correct and display Solved or Incorrect
         if (guess.toLowerCase() === answer.toLowerCase()) {
+            // guessedAnswer = answer;
+            updateQuestionDisplay();
+            document.getElementById('feedback').innerHTML = "SOLVED!";
             console.log('SOLVED!');
         } else {
+            document.getElementById('feedback').innerHTML = "Incorrect - Guess again!";
             console.log('INCORRECT!');
         }
     } else {
