@@ -56,3 +56,25 @@
     /*rules for user inputs div below (style will apply to both text box and submit button)*/
 }
 
+.scores {
+    background: grey;
+}
+
+.gameUi {
+    background-color: pink;
+}
+
+.rowbg {
+    background-color: yellow;
+    padding: 10px;
+    min-height: 60vh;
+}
+
+.navbar .game-title {
+    text-align: center;
+    margin: 0;
+}
+
+.navbar .btn-secondary {
+    margin-left: auto;
+}
