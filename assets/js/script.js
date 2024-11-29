@@ -354,7 +354,9 @@ function cheat() {
         }
         console.log(stillBlank);
     }
-    let cheatCharPos = Math.floor(Math.random() * stillBlank.length);
+    let randomPos = Math.floor(Math.random() * stillBlank.length);
+    let cheatCharPos = stillBlank[randomPos];
+
     let cheatChar = answer[cheatCharPos];
     revealLetter(cheatChar);
      //Update guessedAnswer with the cheat letter
