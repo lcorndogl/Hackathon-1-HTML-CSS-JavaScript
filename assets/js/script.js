@@ -11,31 +11,31 @@ window.document.addEventListener('DOMContentLoaded', function () {
 
 
 
-let newGameButton = document.getElementById('new-game-button');
-newGameButton.addEventListener("click", function () {
-    //New game button funtionality goes here
-    alert('New game button clicked');
-    startGame();
-})
+    let newGameButton = document.getElementById('new-game-button');
+    newGameButton.addEventListener("click", function () {
+        //New game button funtionality goes here
+        alert('New game button clicked');
+        startGame();
+    })
 
-let cheatButton = document.getElementById('cheat-button')
-cheatButton.addEventListener('click', function () {
-    //Cheat button funtionality goes here
-    let cheatCost = 100;
-    if (currentScore >= cheatCost) {
-        currentScore -= cheatCost;
-        cheat();
-    } else {
-        //check syntax
-        cheatButton.setAttribute('innertext', 'Not enough points');
-    }
-})
+    let cheatButton = document.getElementById('cheat-button')
+    cheatButton.addEventListener('click', function () {
+        //Cheat button funtionality goes here
+        let cheatCost = 100;
+        if (currentScore >= cheatCost) {
+            currentScore -= cheatCost;
+            cheat();
+        } else {
+            //check syntax
+            cheatButton.setAttribute('innertext', 'Not enough points');
+        }
+    })
 
-let submitButton = document.getElementById('submit-button')
-submitButton.addEventListener('click', function () {
-    //Submit button funtionality goes here
+    let submitButton = document.getElementById('submit-button')
+    submitButton.addEventListener('click', function () {
+        //Submit button funtionality goes here
 
-})
+    })
 
 })
 
@@ -194,8 +194,8 @@ function getAnswer(question) {
 function updateQuestionDisplay() {
     // Update the question display
     let questionDisplay = document.getElementById('word-display');
-    questionDisplay.innerText = guessedAnswer;
-
+    let updateValue = guessedAnswer.join("");
+    questionDisplay.innerText = updateValue;
 }
 
 /** This function should be run when the user makes a guess
@@ -258,17 +258,24 @@ function guessAnswer(guess) {
     }
 }
 
+/** This function checks how many times a guess is found in the answer
+* It updates the guessedAnswers with the letters guessed and calls the function to update this one screen
+*/
 function revealLetter(guess) {
+    // Creates array to store the locations the guessed letter occurs at
+
     positions = [];
-    let i=0;
-    for (char of answer){
-        if (char.toLowerCase() === guess.toLowerCase()){
+    let i = 0;
+    // checks if the guessed character occurs at each position in the answer
+    for (char of answer) {
+        if (char.toLowerCase() === guess.toLowerCase()) {
+            // Pushes the position number into the positions array each time the guessed letter is found
             positions.push(i);
         }
         i++;
         console.log(positions);
     }
-    for (i of positions){
+    for (i of positions) {
         guessedAnswer[i] = answer[i];
     }
     updateQuestionDisplay();
