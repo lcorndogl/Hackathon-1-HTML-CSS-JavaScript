@@ -13,7 +13,7 @@ window.document.addEventListener('DOMContentLoaded', function () {
     let nextQuestionButton = document.getElementById('submit-button');
     nextQuestionButton.addEventListener("click", function () {
         //Submit button funtionality goes here
-        initialiseGame();
+        startGame();
     })
 
     let newGameButton = document.getElementById('new-game-button');
