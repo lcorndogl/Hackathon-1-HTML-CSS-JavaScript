@@ -1,6 +1,6 @@
 .navbar {
-    background-color: #ffffff; /* White background */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+    background-color: #ffffff; 
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
     border-radius: 8px;
     padding: 10px 20px;
 }
@@ -13,22 +13,35 @@
     letter-spacing: 2px;
 }
 .navbar-brand {
-    font-size: 1.8rem; /* Larger text for the title */
-    font-weight: 600; /* Slightly bolder font */
+    font-size: 1.8rem; 
+    font-weight: 600; 
     color: #5a5a5a;
     text-align: center;
     margin: 0 auto;
+    display: block;
 }
 
 .navbar button {
-    border-radius: 50px; /* Rounded button edges */
+    border-radius: 50px; 
     transition: background-color 0.3s ease, transform 0.3s ease;
 }
 
 .navbar button:hover {
-    background-color: #4a4a4a;
+    background-color: #000000;
     color: white;
     transform: scale(1.05);
+}
+.btn {
+    border-radius: 8px; 
+    padding: 10px 20px;
+    font-size: 1rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+.btn-secondary {
+    background-color: #313436;
+    color: white;
 }
 
 #question {
