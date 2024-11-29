@@ -63,7 +63,7 @@ window.document.addEventListener('DOMContentLoaded', function () {
             cheat();
         } else {
             //check syntax
-            cheatButton.setAttribute('innertext', 'Not enough points');
+            cheatButton.innerText = 'Not enough points';
         }
     })
 })
@@ -290,7 +290,6 @@ function guessAnswer(guess) {
 
     }
 
-
     // Checks if the user has guessed the entire answer
     console.log(guess.trim());
     if (guess.trim().length > 1) {
@@ -302,6 +301,10 @@ function guessAnswer(guess) {
         }
     } else {
         // check if the user has already guessed that letter, if they have display an error
+        if (guessedLetters.includes(guess)) {
+            console.log("hitting already guessed letter statement");
+            return
+        }
         console.log(guessedLetters);
         if (guessedLetters.includes(guess.toLowerCase())) {
             console.log('You have already guessed that letter');
