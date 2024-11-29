@@ -198,6 +198,12 @@ function updateQuestionDisplay() {
     questionDisplay.innerText = updateValue;
 }
 
+function updateScoreDisplay() {
+    // Update the current score display
+    let score = document.getElementById('score-display');
+    score.innerText = currentScore;
+}
+
 /** This function should be run when the user makes a guess
  * Guesses should be triggered by clicking the enter key
  * This function should check if the guess is correct and display the result
