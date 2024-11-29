@@ -19,6 +19,14 @@ window.document.addEventListener('DOMContentLoaded', function () {
         initialiseGame();
     })
 
+    let submitButton = document.getElementById('submit-button');
+    newGameButton.addEventListener("click", function () {
+    let 
+        alert('Submit button clicked');
+        guessAnswer();
+    })
+
+
     let cheatButton = document.getElementById('cheat-button')
     cheatButton.addEventListener('click', function () {
         //Cheat button funtionality goes here
@@ -37,7 +45,8 @@ window.document.addEventListener('DOMContentLoaded', function () {
     let submitButton = document.getElementById('submit-button')
     submitButton.addEventListener('click', function () {
         //Submit button funtionality goes here
-
+        let guess = document.getElementById('user-guess').value;
+        guessAnswer(guess);
     })
 
 })
