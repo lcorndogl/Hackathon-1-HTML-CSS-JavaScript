@@ -272,6 +272,7 @@ function guessAnswer(guess) {
     //Array of valid guesses
     const validGuess = [].concat(vowels, consonants, " ");
 
+    document.getElementById('cheat-button').innerText = 'Cheat';
     console.log(guess)
     //check if the guess is valid
     // check that the guess is not an empty string
