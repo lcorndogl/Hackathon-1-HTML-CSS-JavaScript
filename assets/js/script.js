@@ -282,6 +282,7 @@ function guessAnswer(guess) {
     //check if the guess is valid
     // check that the guess is not an empty string
     if (guess.length === 0) {
+        document.getElementById('feedback').innerHTML = "Guesses cannot be blank";
         console.log('Space');
         return;
     }
@@ -289,6 +290,7 @@ function guessAnswer(guess) {
     for (let char of guess) {
         if (!validGuess.includes(char.toLowerCase())) {
             console.log('Invalid guess');
+            document.getElementById('feedback').innerHTML = "Invalid guess - only letters are valid guesses unless you are guessing the entire answer where spaces are also valid";
             return;
         }
         console.log(guess.length);
@@ -310,13 +312,11 @@ function guessAnswer(guess) {
         }
     } else {
         // check if the user has already guessed that letter, if they have display an error
-        if (guessedLetters.includes(guess)) {
-            console.log("hitting already guessed letter statement");
-            return
-        }
         console.log(guessedLetters);
         if (guessedLetters.includes(guess.toLowerCase())) {
+            document.getElementById('feedback').innerHTML = "You have already guessed that letter, please try another";
             console.log('You have already guessed that letter');
+            return;
         } else {
             guessedLetters.push(guess.toLowerCase());
             console.log(guessedLetters);
@@ -337,6 +337,7 @@ function guessAnswer(guess) {
             if (currentScore >= 50) {
                 currentScore -= 50;
             } else {
+                document.getElementById('feedback').innerHTML = "Not enough points - Vowels cost 50 points";
                 console.log('Not enough points');
             }
         } else {
