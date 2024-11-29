@@ -1,5 +1,34 @@
-h1 {
-    /*rules for header text below*/
+.navbar {
+    background-color: #ffffff; /* White background */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+    border-radius: 8px;
+    padding: 10px 20px;
+}
+.game-title {
+    font-family: 'Ubuntu Mono', monospace;
+    font-size: 3rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    color: #2c3e50;
+    letter-spacing: 2px;
+}
+.navbar-brand {
+    font-size: 1.8rem; /* Larger text for the title */
+    font-weight: 600; /* Slightly bolder font */
+    color: #5a5a5a;
+    text-align: center;
+    margin: 0 auto;
+}
+
+.navbar button {
+    border-radius: 50px; /* Rounded button edges */
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.navbar button:hover {
+    background-color: #4a4a4a;
+    color: white;
+    transform: scale(1.05);
 }
 
 #question {
