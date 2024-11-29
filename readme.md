@@ -38,9 +38,15 @@ The above demonstrates Copilot missing a linked asset, and taking it's best gues
 This if test was one entirely derived by ai, along with the plan arrived at to refine the first solution we arrived at
 ![Ai_code_plan](docs/Promptexample.png)
 
+## Future Features
+The game could have a login funtion, to allow users to track their all-time high scores, and keep a record of successful and unsuccesful solves.
+A timer could be added to the game for a more configurable challenge. This could also be tracked across users, and used to 
+generate leaderboards based on fastest times and highest scores.
+
 
 ## Credits
 
 [Stack Overflow - How to form an array of question/answer pairs](https://stackoverflow.com/questions/37252041/storing-quiz-questions-in-array-of-objects)
 
 [aiIntegrationDefinition]: #AI
+
