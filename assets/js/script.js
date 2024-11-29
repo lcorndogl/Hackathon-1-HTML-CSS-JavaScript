@@ -8,36 +8,48 @@ let guessedAnswer = [];
 
 window.document.addEventListener('DOMContentLoaded', function () {
     //This code will run after the page loads
+    initialiseGame();
 
 
 
-let newGameButton = document.getElementById('new-game-button');
-newGameButton.addEventListener("click", function () {
-    //New game button funtionality goes here
-    alert('New game button clicked');
+    let newGameButton = document.getElementById('new-game-button');
+    newGameButton.addEventListener("click", function () {
+        //New game button funtionality goes here
+        alert('New game button clicked');
+        startGame();
+    })
+
+    let cheatButton = document.getElementById('cheat-button')
+    cheatButton.addEventListener('click', function () {
+        //Cheat button funtionality goes here
+        let cheatCost = 100;
+        if (currentScore >= cheatCost) {
+            currentScore -= cheatCost;
+            cheat();
+        } else {
+            //check syntax
+            cheatButton.setAttribute('innertext', 'Not enough points');
+        }
+    })
+
+    let submitButton = document.getElementById('submit-button')
+    submitButton.addEventListener('click', function () {
+        //Submit button funtionality goes here
+
+    })
+
+})
+
+function initialiseGame() {
+    //Initialise the game
     startGame();
-})
-
-let cheatButton = document.getElementById('cheat-button')
-cheatButton.addEventListener('click', function () {
-    //Cheat button funtionality goes here
-    let cheatCost = 100;
-    if (currentScore >= cheatCost) {
-        currentScore -= cheatCost;
-        cheat();
-    } else {
-        //check syntax
-        cheatButton.setAttribute('innertext', 'Not enough points');
-    }
-})
-
-let submitButton = document.getElementById('submit-button')
-submitButton.addEventListener('click', function () {
-    //Submit button funtionality goes here
-
-})
-
-})
+    currentScore = 0;
+    highScore = 0;
+    updateQuestionDisplay();
+    // updateCurrentScoreDisplay();
+    // updateHighScoreDisplay();
+    document.getElementById('submit-button').innerText = "Next Question";
+}   
 
 /** This function is run whenever a new question is generated
  * It gets the question and answer and modifies the DOM to display it */
@@ -56,8 +68,8 @@ function startGame() {
         else {
             guessedAnswer[i] = "_";
         }
-        console.log(char);
-        console.log(i);
+        // console.log(char);
+        // console.log(i);
         i++;
     }
 
@@ -194,9 +206,15 @@ function getAnswer(question) {
 function updateQuestionDisplay() {
     // Update the question display
     let questionDisplay = document.getElementById('word-display');
-    questionDisplay.innerText = guessedAnswer;
-
+    let updateValue = guessedAnswer.join(" ");
+    questionDisplay.innerText = updateValue;
 }
+
+function updateCurrentScoreDisplay() {
+    // Update the current score display
+    document.getElementById('score-display').innerText = currentScore;
+}
+
 
 /** This function should be run when the user makes a guess
  * Guesses should be triggered by clicking the enter key
@@ -258,17 +276,24 @@ function guessAnswer(guess) {
     }
 }
 
+/** This function checks how many times a guess is found in the answer
+* It updates the guessedAnswers with the letters guessed and calls the function to update this one screen
+*/
 function revealLetter(guess) {
+    // Creates array to store the locations the guessed letter occurs at
+
     positions = [];
-    let i=0;
-    for (char of answer){
-        if (char.toLowerCase() === guess.toLowerCase()){
+    let i = 0;
+    // checks if the guessed character occurs at each position in the answer
+    for (char of answer) {
+        if (char.toLowerCase() === guess.toLowerCase()) {
+            // Pushes the position number into the positions array each time the guessed letter is found
             positions.push(i);
         }
         i++;
         console.log(positions);
     }
-    for (i of positions){
+    for (i of positions) {
         guessedAnswer[i] = answer[i];
     }
     updateQuestionDisplay();
