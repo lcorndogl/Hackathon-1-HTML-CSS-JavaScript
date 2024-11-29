@@ -56,8 +56,8 @@ window.document.addEventListener('DOMContentLoaded', function () {
     let submitButton = document.getElementById('submit-button');
     submitButton.addEventListener('click', function () {
         //Submit button funtionality goes here
-        let guess = document.getElementById('user-guess').value;
-        guessAnswer(guess);
+        // let guess = document.getElementById('user-guess').value;
+        // guessAnswer(guess);
         // updateCurrentScoreDisplay();
         // document.getElementById('user-guess').value = '';
     })
@@ -109,6 +109,8 @@ function startGame() {
     guessedLetters.length = 0;
     // console.log(guessedLetters.length);
     // console.log(guessedLetters);
+    updateQuestionText();
+    updateQuestionDisplay();
 }
 
 /** This function contains the questions and will return one at random */
