@@ -30,9 +30,14 @@ Demonstrations of the scalability of the site to larger devices are wireframed b
 ## Troubleshooting
 ![Wireframe](docs/bugs/CssAifile2.png)
 
-The above demonstrates copilot missing a linked asset, and taking it's best guess at the filepath for the local CSS. This is a persistent issue with ai-generated links as demonstrated below.
+The above demonstrates Copilot missing a linked asset, and taking it's best guess at the filepath for the local CSS. This is a persistent issue with ai-generated links as demonstrated below.
 
 ![Wireframe](docs/bugs/JsAifile1.png)
+
+## Coding with AI
+This if test was one entirely derived by ai, along with the plan arrived at to refine the first solution we arrived at
+![Ai_code_plan](docs/Promptexample.png)
+
 
 ## Credits
 
