@@ -115,6 +115,7 @@ function startGame() {
     // console.log(guessedLetters);
     updateQuestionText();
     updateQuestionDisplay();
+    document.getElementById('feedback').innerHTML = "<br>";
 }
 
 /** This function contains the questions and will return one at random */
@@ -191,7 +192,7 @@ function getAnswer(question) {
         { question: "What is the fastest land animal in the world?", answer: "Cheetah" },
         { question: "What is the fastest bird in the world?", answer: "Peregrine Falcon" },
         { question: "What is the fastest fish in the world?", answer: "Sailfish" },
-        { question: "What is the fastest mammal in the world?", answer: "Brazilian Free-tailed Bat" },
+        { question: "What is the fastest mammal in the world?", answer: "Brazilian Free tailed Bat" },
         { question: "What is the tallest mountain in the world?", answer: "Mount Everest" },
         { question: "What is the largest ocean in the world?", answer: "Pacific Ocean" },
         { question: "What is the smallest ocean in the world?", answer: "Arctic Ocean" },
@@ -296,7 +297,9 @@ function guessAnswer(guess) {
     if (guess.trim().length > 1) {
         // Check if the answer is correct and display Solved or Incorrect
         if (guess.toLowerCase() === answer.toLowerCase()) {
-            document.getElementById('feedback').innerText = "SOLVED!";
+            // guessedAnswer = answer;
+            updateQuestionDisplay();
+            document.getElementById('feedback').innerHTML = "SOLVED!";
             console.log('SOLVED!');
         } else {
             console.log('INCORRECT!');
