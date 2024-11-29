@@ -278,8 +278,10 @@ function guessAnswer(guess) {
         // check if the user's guess is in the answer, if it is reveal the letter in the answer
         if (answer.toLowerCase().includes(guess.toLowerCase())) {
             revealLetter(guess.toLowerCase())
+            score = score + 100;
         } else {
             console.log('Incorrect guess');
+            score = score - 50;
         }
 
         // check if the user's guess is a vowel, if it is subtract 50 points from the user's score
