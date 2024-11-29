@@ -19,7 +19,10 @@ window.document.addEventListener('DOMContentLoaded', function () {
     let newGameButton = document.getElementById('new-game-button');
     newGameButton.addEventListener("click", function () {
         //New game button funtionality goes here
-        alert('New game button clicked');
+       if (currentScore > highScore) {
+           highScore = currentScore;
+           updateCurrentScoreDisplay();
+       }
         initialiseGame();
     })
 
@@ -38,7 +41,7 @@ window.document.addEventListener('DOMContentLoaded', function () {
     let cheatButton = document.getElementById('cheat-button')
     cheatButton.addEventListener('click', function () {
         //Cheat button funtionality goes here
-        alert(currentScore);
+        
         let cheatCost = 100;
         if (currentScore >= cheatCost) {
             currentScore -= cheatCost;
@@ -64,13 +67,12 @@ window.document.addEventListener('DOMContentLoaded', function () {
 function initialiseGame() {
     //Initialise the game
     startGame();
-    currentScore = 20000;
-    highScore = 0;
+    currentScore = 200;
+    
     updateQuestionText();
     updateQuestionDisplay();
     updateCurrentScoreDisplay();
-    
-    // updateHighScoreDisplay();
+    updateHighScoreDisplay();
     document.getElementById('submit-button').innerText = "Next Question";
 }   
 
@@ -242,6 +244,13 @@ function updateQuestionText() {
 function updateCurrentScoreDisplay() {
     // Update the current score display
     document.getElementById('current-score').innerText = currentScore;
+    
+}
+
+function updateHighScoreDisplay() {
+    // Update the current score display
+    alert("High Score: " + highScore);
+    document.getElementById('high-score').innerText = currentScore;
     
 }
 
