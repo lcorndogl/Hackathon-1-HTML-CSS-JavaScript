@@ -191,6 +191,13 @@ function getAnswer(question) {
     return qAnswer.answer;
 }
 
+function updateQuestionDisplay() {
+    // Update the question display
+    let questionDisplay = document.getElementById('word-display');
+    questionDisplay.innerText = guessedAnswer;
+
+}
+
 /** This function should be run when the user makes a guess
  * Guesses should be triggered by clicking the enter key
  * This function should check if the guess is correct and display the result
@@ -264,7 +271,7 @@ function revealLetter(guess) {
     for (i of positions){
         guessedAnswer[i] = answer[i];
     }
-    updateDisplay();
+    updateQuestionDisplay();
 }
 
 /** This function should be run when the user clicks the cheat button
