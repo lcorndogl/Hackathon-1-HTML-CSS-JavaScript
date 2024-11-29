@@ -254,6 +254,16 @@ function revealLetter(guess) {
  * If the user does it will reveal a letter of the answer
  */
 function cheat() {
+    let stillBlank = [];
+    //create an array of the positions of the blank spaces in guessedAnswer
+    for (let i = 0; i < guessedAnswer.length; i++) {
+        if (guessedAnswer[i] === "_") {
+            stillBlank.push(i);
+        }
+    }
+    let cheatCharPos = Math.floor(Math.random() * stillBlank.length);
+    let cheatChar = answer[cheatCharPos];
+    revealLetter(cheatChar);
 
-    return null;
+    //If the revealLetter function also adds score, this function will do an appropriate subtraction imediately below
 }

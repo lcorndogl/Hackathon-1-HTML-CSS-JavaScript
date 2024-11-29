@@ -36,7 +36,7 @@ The above demonstrates Copilot missing a linked asset, and taking it's best gues
 
 ## Coding with AI
 This if test was one entirely derived by ai, along with the plan arrived at to refine the first solution we arrived at
-![Ai_code_plan](docs/promptexample.png)
+![Ai_code_plan](docs/Promptexample.png)
 
 
 ## Credits
