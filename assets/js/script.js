@@ -9,13 +9,14 @@ let guessedAnswer = [];
 window.document.addEventListener('DOMContentLoaded', function () {
     //This code will run after the page loads
 
-})
 
-let newGameButton = document.getElementById('new-game-button')
-newGameButton.addEventListener('click', function () {
+
+let newGameButton = document.getElementById('new-game-button');
+newGameButton.addEventListener("click", function () {
     //New game button funtionality goes here
+    alert('New game button clicked');
     startGame();
-}
+})
 
 let cheatButton = document.getElementById('cheat-button')
 cheatButton.addEventListener('click', function () {
@@ -33,6 +34,8 @@ cheatButton.addEventListener('click', function () {
 let submitButton = document.getElementById('submit-button')
 submitButton.addEventListener('click', function () {
     //Submit button funtionality goes here
+
+})
 
 })
 
