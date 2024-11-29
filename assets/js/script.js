@@ -254,6 +254,10 @@ function updateCurrentScoreDisplay() {
     document.getElementById('current-score').innerText = currentScore;
 
 }
+function updateLettersUsedDisplay() {
+    // Update the letters guessed in alphabetical order - Thanks steve for the sort idea!
+    document.getElementById("letters-used").innerText = guessedLetters.sort().join(", ");
+}
 
 function updateHighScoreDisplay() {
     // Update the current score display
@@ -343,8 +347,7 @@ function guessAnswer(guess) {
         } else {
             console.log('Consonant');
         }
-        // Update the letters guessed in alphabetical order - Thanks steve for the sort idea!
-        document.getElementById("letters-used").innerText = guessedLetters.sort().join(", ");
+
     }
 }
 
@@ -391,6 +394,10 @@ function cheat() {
 
     let cheatChar = answer[cheatCharPos];
     revealLetter(cheatChar);
+    //Add the cheat letter to the guessed letters array
+    guessedLetters.push(cheatChar);
+    updateLettersUsedDisplay();
+
     //Update guessedAnswer with the cheat letter
     guessedAnswer[cheatCharPos] = cheatChar;
 
