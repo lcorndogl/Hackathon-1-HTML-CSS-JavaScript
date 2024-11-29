@@ -11,6 +11,12 @@ window.document.addEventListener('DOMContentLoaded', function () {
 
 })
 
+let newGameButton = document.getElementById('new-game-button')
+newGameButton.addEventListener('click', function () {
+    //New game button funtionality goes here
+    startGame();
+}
+
 let cheatButton = document.getElementById('cheat-button')
 cheatButton.addEventListener('click', function () {
     //Cheat button funtionality goes here
