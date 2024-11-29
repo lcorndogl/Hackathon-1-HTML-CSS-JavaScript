@@ -10,7 +10,11 @@ window.document.addEventListener('DOMContentLoaded', function () {
     //This code will run after the page loads
     initialiseGame();
 
-
+    let nextQuestionButton = document.getElementById('submit-button');
+    nextQuestionButton.addEventListener("click", function () {
+        //Submit button funtionality goes here
+        initialiseGame();
+    })
 
     let newGameButton = document.getElementById('new-game-button');
     newGameButton.addEventListener("click", function () {
@@ -19,11 +23,13 @@ window.document.addEventListener('DOMContentLoaded', function () {
         initialiseGame();
     })
 
+
     document.getElementById('user-guess').addEventListener('keydown', function(event) { 
         if (event.key === 'Enter') {
-            //Submit button funtionality goes here
+            
             let guess = document.getElementById('user-guess').value;
             guessAnswer(guess);
+            updateCurrentScoreDisplay();
             document.getElementById('user-guess').value = '';
         }
     })
@@ -49,6 +55,8 @@ window.document.addEventListener('DOMContentLoaded', function () {
         //Submit button funtionality goes here
         let guess = document.getElementById('user-guess').value;
         guessAnswer(guess);
+        updateCurrentScoreDisplay();
+        document.getElementById('user-guess').value = '';
     })
 
 })
@@ -60,7 +68,8 @@ function initialiseGame() {
     highScore = 0;
     updateQuestionText();
     updateQuestionDisplay();
-    // updateCurrentScoreDisplay();
+    updateCurrentScoreDisplay();
+    
     // updateHighScoreDisplay();
     document.getElementById('submit-button').innerText = "Next Question";
 }   
@@ -232,7 +241,8 @@ function updateQuestionText() {
 
 function updateCurrentScoreDisplay() {
     // Update the current score display
-    document.getElementById('score-display').innerText = currentScore;
+    document.getElementById('current-score').innerText = currentScore;
+    
 }
 
 
@@ -278,8 +288,10 @@ function guessAnswer(guess) {
         // check if the user's guess is in the answer, if it is reveal the letter in the answer
         if (answer.toLowerCase().includes(guess.toLowerCase())) {
             revealLetter(guess.toLowerCase())
+            currentScore += 100;
         } else {
             console.log('Incorrect guess');
+            currentScore -= 50;
         }
 
         // check if the user's guess is a vowel, if it is subtract 50 points from the user's score
