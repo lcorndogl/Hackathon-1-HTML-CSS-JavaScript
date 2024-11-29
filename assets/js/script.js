@@ -296,6 +296,7 @@ function guessAnswer(guess) {
     if (guess.trim().length > 1) {
         // Check if the answer is correct and display Solved or Incorrect
         if (guess.toLowerCase() === answer.toLowerCase()) {
+            document.getElementById('feedback').innerText = "SOLVED!";
             console.log('SOLVED!');
         } else {
             console.log('INCORRECT!');
