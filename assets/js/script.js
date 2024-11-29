@@ -19,11 +19,13 @@ window.document.addEventListener('DOMContentLoaded', function () {
         initialiseGame();
     })
 
-    let submitButton = document.getElementById('submit-button');
-    newGameButton.addEventListener("click", function () {
-    let 
-        alert('Submit button clicked');
-        guessAnswer();
+    document.getElementById('user-guess').addEventListener('keydown', function(event) { 
+        if (event.key === 'Enter') {
+            //Submit button funtionality goes here
+            let guess = document.getElementById('user-guess').value;
+            guessAnswer(guess);
+            document.getElementById('user-guess').value = '';
+        }
     })
 
 
