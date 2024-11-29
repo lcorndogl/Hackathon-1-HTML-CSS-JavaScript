@@ -115,6 +115,7 @@ function startGame() {
     // console.log(guessedLetters);
     updateQuestionText();
     updateQuestionDisplay();
+    document.getElementById("letters-used").innerText = "None - Make your first guess!";
     document.getElementById('feedback').innerHTML = "<br>";
 }
 
