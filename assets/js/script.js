@@ -16,15 +16,17 @@ window.document.addEventListener('DOMContentLoaded', function () {
     newGameButton.addEventListener("click", function () {
         //New game button funtionality goes here
         alert('New game button clicked');
-        initialiseGameGame();
+        initialiseGame();
     })
 
     let cheatButton = document.getElementById('cheat-button')
     cheatButton.addEventListener('click', function () {
         //Cheat button funtionality goes here
+        alert(currentScore);
         let cheatCost = 100;
         if (currentScore >= cheatCost) {
             currentScore -= cheatCost;
+            console.log('Cheat');
             cheat();
         } else {
             //check syntax
@@ -43,7 +45,7 @@ window.document.addEventListener('DOMContentLoaded', function () {
 function initialiseGame() {
     //Initialise the game
     startGame();
-    currentScore = 0;
+    currentScore = 200;
     highScore = 0;
     updateQuestionDisplay();
     // updateCurrentScoreDisplay();
@@ -306,10 +308,12 @@ function revealLetter(guess) {
 function cheat() {
     let stillBlank = [];
     //create an array of the positions of the blank spaces in guessedAnswer
+    
     for (let i = 0; i < guessedAnswer.length; i++) {
         if (guessedAnswer[i] === "_") {
             stillBlank.push(i);
         }
+        
     }
     let cheatCharPos = Math.floor(Math.random() * stillBlank.length);
     let cheatChar = answer[cheatCharPos];
