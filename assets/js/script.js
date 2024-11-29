@@ -25,7 +25,7 @@ window.document.addEventListener('DOMContentLoaded', function () {
         attempt3 = document.getElementById('attempt-2').innerText;
         attempt2 = document.getElementById('attempt-1').innerText;
         attempt1 = document.getElementById('current-score').innerText;
-        console.log(attempt3, attempt2, attempt1); 
+        console.log(attempt3, attempt2, attempt1);
 
         // Updates the attempts in the DOM
         document.getElementById('attempt-3').innerText = attempt3;
@@ -273,8 +273,11 @@ function guessAnswer(guess) {
     //Array of valid guesses
     const validGuess = [].concat(vowels, consonants, " ");
 
+    // Reset feedback elements on next user action
     document.getElementById('cheat-button').innerText = 'Cheat';
+    document.getElementById('feedback').innerHTML = "<br>";
     console.log(guess)
+
     //check if the guess is valid
     // check that the guess is not an empty string
     if (guess.length === 0) {
@@ -289,7 +292,6 @@ function guessAnswer(guess) {
         }
         console.log(guess.length);
         console.log("Char check ran");
-
     }
 
     // Checks if the user has guessed the entire answer
@@ -302,6 +304,7 @@ function guessAnswer(guess) {
             document.getElementById('feedback').innerHTML = "SOLVED!";
             console.log('SOLVED!');
         } else {
+            document.getElementById('feedback').innerHTML = "Incorrect - Guess again!";
             console.log('INCORRECT!');
         }
     } else {
