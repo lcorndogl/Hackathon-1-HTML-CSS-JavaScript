@@ -65,4 +65,6 @@ generate leaderboards based on fastest times and highest scores.
 
 [MDN Docs - Letter spacing code snippet to ensure there is space between letters without HTML stripping out multiple space character whitespaces](https://developer.mozilla.org/en-US/docs/Web/CSS/letter-spacing)
 
+[Cloud Convert - Image manipulation](https://cloudconvert.com/png-to-webp "Convert image filesize and format to webp")
+
 [aiIntegrationDefinition]: #AI
