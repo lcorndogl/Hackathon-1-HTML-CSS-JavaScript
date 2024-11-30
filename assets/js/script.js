@@ -47,6 +47,7 @@ window.document.addEventListener('DOMContentLoaded', function () {
             let guess = document.getElementById('user-guess').value;
             guessAnswer(guess);
             updateCurrentScoreDisplay();
+            updateLettersUsedDisplay();
             document.getElementById('user-guess').value = '';
         }
     })
@@ -299,6 +300,7 @@ function guessAnswer(guess) {
         }
         console.log(guess.length);
         console.log("Char check ran");
+        
     }
 
     // Checks if the user has guessed the entire answer
