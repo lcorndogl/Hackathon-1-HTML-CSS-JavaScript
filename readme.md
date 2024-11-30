@@ -63,4 +63,6 @@ generate leaderboards based on fastest times and highest scores.
 
 [Stack Overflow - How to form an array of question/answer pairs](https://stackoverflow.com/questions/37252041/storing-quiz-questions-in-array-of-objects)
 
+[MDN Docs - Letter spacing code snippet to ensure there is space between letters without HTML stripping out multiple space character whitespaces](https://developer.mozilla.org/en-US/docs/Web/CSS/letter-spacing)
+
 [aiIntegrationDefinition]: #AI
