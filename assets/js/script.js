@@ -239,7 +239,7 @@ function getAnswer(question) {
 function updateQuestionDisplay() {
     // Update the question display
     let questionDisplay = document.getElementById('word-display');
-    let updateValue = guessedAnswer.join(" ");
+    let updateValue = guessedAnswer.join("");
     questionDisplay.innerText = updateValue;
 }
 
