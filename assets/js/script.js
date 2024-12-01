@@ -12,6 +12,11 @@ window.document.addEventListener('DOMContentLoaded', function () {
 
     let nextQuestionButton = document.getElementById('submit-button');
     nextQuestionButton.addEventListener("click", function () {
+        // check the user has guessed the answer before moving to the next question
+        if (guessedAnswer.includes("_")) {
+            updateFeedback('You must guess the answer before moving to the next question');
+            return;
+        }
         //Submit button funtionality goes here
         startGame();
     })
