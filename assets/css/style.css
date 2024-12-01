@@ -85,23 +85,26 @@ body {
     color: #fff;
 }
 
-#question {
-    /*rules for question h2 text below*/
+#prev-attempts {
+    background-color: transparent;
+    border: 2px solid #fff;
+    border-radius: 8px;
+    padding: 10px;
+    color: #fff;
 }
 
-#worddisplay {
-    /*rules for word display text below*/
+.list-group-item {
+    background-color: #000;
+    border: none;
+    color: #fff;
+    padding: 10px;
 }
-
-#userinputs {
-    /*rules for user inputs div below (style will apply to both text box and submit button)*/
-}
-
-
 
 .rowbg {
-    background-color: yellow;
-    padding: 10px;
+    background-color: #222;
+    border: 2px solid #fff;
+    border-radius: 12px;
+    padding: 20px;
     min-height: 60vh;
 }
 
