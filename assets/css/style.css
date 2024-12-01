@@ -99,6 +99,29 @@ body {
     color: #fff;
     padding: 10px;
 }
+#cheat-button {
+    background-color: #ff5757;
+    border: 2px solid #fff;
+    color: #fff;
+}
+
+#letters-used {
+    font-size: 1.2rem;
+    color: #fff;
+}
+.modal-content {
+    background-color: #111;
+    color: #fff;
+    border: 2px solid #fff;
+}
+
+.modal-header, .modal-footer {
+    border: none;
+}
+
+.btn-close {
+    filter: invert(1); 
+}
 
 .rowbg {
     background-color: #222;
