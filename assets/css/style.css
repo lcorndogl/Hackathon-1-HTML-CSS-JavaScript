@@ -13,7 +13,8 @@ body {
     padding: 10px 20px;
     text-shadow: -1px 0 #000, 0 1px #000, 1px 0 #000, 0 -1px #000;
 }
-.navbar:hover {
+
+.navbar .navbar-brand:hover {
     text-shadow: -1px 0 whitesmoke, 0 1px white, 1px 0 white, 0 -1px white;
 }
 .game-title {
