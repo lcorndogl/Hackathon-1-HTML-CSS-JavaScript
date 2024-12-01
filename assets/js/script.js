@@ -310,22 +310,22 @@ function guessAnswer(guess) {
         }
         console.log(guess.length);
         console.log("Char check ran");
-        
+
     }
 
-            // check if the user's guess is a vowel, if it is subtract 50 points from the user's score
-            if (vowels.includes(guess.toLowerCase())) {
-                console.log('Vowel');
-                if (currentScore >= 50) {
-                    currentScore -= 50;
-                } else {
-                    updateFeedback('Not enough points - Vowels cost 50 points');
-                    console.log('Not enough points');
-                    return;
-                }
-            } else {
-                console.log('Consonant');
-            }
+    // check if the user's guess is a vowel, if it is subtract 50 points from the user's score
+    if (vowels.includes(guess.toLowerCase())) {
+        console.log('Vowel');
+        if (currentScore >= 50) {
+            currentScore -= 50;
+        } else {
+            updateFeedback('Not enough points - Vowels cost 50 points');
+            console.log('Not enough points');
+            return;
+        }
+    } else {
+        console.log('Consonant');
+    }
 
     // Checks if the user has guessed the entire answer
     console.log(guess.trim());
@@ -336,6 +336,12 @@ function guessAnswer(guess) {
             updateQuestionDisplay();
             updateFeedback('SOLVED!');
             console.log('SOLVED!');
+            let awardScore = (1000 - guessedLetters.length ** 2 - guessedLetters.length * 100);
+            if (awardScore < 0) {
+                return;
+            }
+            currentScore += awardScore;
+            updateCurrentScoreDisplay();
         } else {
             updateFeedback('Incorrect - Guess again!');
             console.log('INCORRECT!');
