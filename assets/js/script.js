@@ -5,6 +5,7 @@ let answer = '';
 let currentScore = 0;
 let highScore = 0;
 let guessedAnswer = [];
+let allowNextQuestion = false;
 
 window.document.addEventListener('DOMContentLoaded', function () {
     //This code will run after the page loads
@@ -13,7 +14,7 @@ window.document.addEventListener('DOMContentLoaded', function () {
     let nextQuestionButton = document.getElementById('submit-button');
     nextQuestionButton.addEventListener("click", function () {
         // check the user has guessed the answer before moving to the next question
-        if (guessedAnswer.includes("_")) {
+        if (!allowNextQuestion) {
             updateFeedback('You must guess the answer before moving to the next question');
             return;
         }
@@ -93,6 +94,7 @@ function startGame() {
     question = getQuestion();
     // Calls the getAnswer function to get the answer to the question
     answer = getAnswer(question);
+    allowNextQuestion = false;
     guessedAnswer.length = 0;
     let i = 0;
 
@@ -283,6 +285,13 @@ function updateHighScoreDisplay() {
  * This function should check if the guess is correct and display the result
  */
 function guessAnswer(guess) {
+    // Check if the question has already been answered
+    //to prevent the user from repeatedly answering the same question for points
+    if (allowNextQuestion) {
+        updateFeedback('You have already solved this question');
+        return;
+    }
+
     // Arrays containing the vowels and consonants
     const vowels = ['a', 'e', 'i', 'o', 'u'];
     const consonants = ['b', 'c', 'd', 'f', 'g', 'h', 'j', 'k', 'l', 'm', 'n', 'p', 'q', 'r', 's', 't', 'v', 'w', 'x', 'y', 'z'];
@@ -333,6 +342,7 @@ function guessAnswer(guess) {
         // Check if the answer is correct and display Solved or Incorrect
         if (guess.toLowerCase() === answer.toLowerCase()) {
             // guessedAnswer = answer;
+
             updateQuestionDisplay();
             updateFeedback('SOLVED!');
             console.log('SOLVED!');
@@ -342,6 +352,8 @@ function guessAnswer(guess) {
             }
             currentScore += awardScore;
             updateCurrentScoreDisplay();
+            allowNextQuestion = true;
+            revealAnswer(guess.toLowerCase());
         } else {
             updateFeedback('Incorrect - Guess again!');
             console.log('INCORRECT!');
@@ -366,9 +378,18 @@ function guessAnswer(guess) {
             console.log('Incorrect guess');
             currentScore -= 50;
         }
-
-
-
+        // check if the user has guessed the entire answer
+        for (char of answer) {
+            if (guessedAnswer.includes("_")) {
+                console.log('Not solved');
+                return;
+            } else {
+                updateFeedback('SOLVED!');
+                console.log('SOLVED!');
+                updateCurrentScoreDisplay();
+                allowNextQuestion = true;
+            }
+        }
     }
 }
 
@@ -391,6 +412,17 @@ function revealLetter(guess) {
     }
     for (i of positions) {
         guessedAnswer[i] = answer[i];
+    }
+    updateQuestionDisplay();
+    updateCurrentScoreDisplay();
+}
+
+function revealAnswer(guess) {
+    // Updates the guessedAnswer array with the correct answer
+    let i = 0;
+    for (char of answer) {
+        guessedAnswer[i] = char;
+        i++;
     }
     updateQuestionDisplay();
     updateCurrentScoreDisplay();
