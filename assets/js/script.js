@@ -285,6 +285,13 @@ function updateHighScoreDisplay() {
  * This function should check if the guess is correct and display the result
  */
 function guessAnswer(guess) {
+    // Check if the question has already been answered
+    //to prevent the user from repeatedly answering the same question for points
+    if (allowNextQuestion) {
+        updateFeedback('You have already solved this question');
+        return;
+    }
+
     // Arrays containing the vowels and consonants
     const vowels = ['a', 'e', 'i', 'o', 'u'];
     const consonants = ['b', 'c', 'd', 'f', 'g', 'h', 'j', 'k', 'l', 'm', 'n', 'p', 'q', 'r', 's', 't', 'v', 'w', 'x', 'y', 'z'];
@@ -335,6 +342,7 @@ function guessAnswer(guess) {
         // Check if the answer is correct and display Solved or Incorrect
         if (guess.toLowerCase() === answer.toLowerCase()) {
             // guessedAnswer = answer;
+
             updateQuestionDisplay();
             updateFeedback('SOLVED!');
             console.log('SOLVED!');
