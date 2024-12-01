@@ -117,7 +117,7 @@ function startGame() {
     updateQuestionText();
     updateQuestionDisplay();
     document.getElementById("letters-used").innerText = "None - Make your first guess!";
-    document.getElementById('feedback').innerHTML = "<br>";
+    updateFeedback('<br>');
 }
 
 /** This function contains the questions and will return one at random */
@@ -239,7 +239,7 @@ function getAnswer(question) {
 
 function updateFeedback(feedback) {
     // Update the feedback display
-    document.getElementById('feedback').innerText = feedback;
+    document.getElementById('feedback').innerHTML = feedback;
 }
 
 function updateQuestionDisplay() {
@@ -286,13 +286,13 @@ function guessAnswer(guess) {
 
     // Reset feedback elements on next user action
     document.getElementById('cheat-button').innerText = 'Cheat';
-    document.getElementById('feedback').innerHTML = "<br>";
+    updateFeedback('<br>');
     console.log(guess)
 
     //check if the guess is valid
     // check that the guess is not an empty string
     if (guess.length === 0) {
-        document.getElementById('feedback').innerHTML = "Guesses cannot be blank";
+        updateFeedback("Guesses cannot be blank");
         console.log('Space');
         return;
     }
@@ -300,13 +300,27 @@ function guessAnswer(guess) {
     for (let char of guess) {
         if (!validGuess.includes(char.toLowerCase())) {
             console.log('Invalid guess');
-            document.getElementById('feedback').innerHTML = "Invalid guess - only letters are valid guesses unless you are guessing the entire answer where spaces are also valid";
+            updateFeedback('Invalid guess - only letters are valid guesses unless you are guessing the entire answer where spaces are also valid');
             return;
         }
         console.log(guess.length);
         console.log("Char check ran");
         
     }
+
+            // check if the user's guess is a vowel, if it is subtract 50 points from the user's score
+            if (vowels.includes(guess.toLowerCase())) {
+                console.log('Vowel');
+                if (currentScore >= 50) {
+                    currentScore -= 50;
+                } else {
+                    updateFeedback('Not enough points - Vowels cost 50 points');
+                    console.log('Not enough points');
+                    return;
+                }
+            } else {
+                console.log('Consonant');
+            }
 
     // Checks if the user has guessed the entire answer
     console.log(guess.trim());
@@ -315,17 +329,17 @@ function guessAnswer(guess) {
         if (guess.toLowerCase() === answer.toLowerCase()) {
             // guessedAnswer = answer;
             updateQuestionDisplay();
-            document.getElementById('feedback').innerHTML = "SOLVED!";
+            updateFeedback('SOLVED!');
             console.log('SOLVED!');
         } else {
-            document.getElementById('feedback').innerHTML = "Incorrect - Guess again!";
+            updateFeedback('Incorrect - Guess again!');
             console.log('INCORRECT!');
         }
     } else {
         // check if the user has already guessed that letter, if they have display an error
         console.log(guessedLetters);
         if (guessedLetters.includes(guess.toLowerCase())) {
-            document.getElementById('feedback').innerHTML = "You have already guessed that letter, please try another";
+            updateFeedback('You have already guessed that letter, please try another');
             console.log('You have already guessed that letter');
             return;
         } else {
@@ -342,18 +356,7 @@ function guessAnswer(guess) {
             currentScore -= 50;
         }
 
-        // check if the user's guess is a vowel, if it is subtract 50 points from the user's score
-        if (vowels.includes(guess.toLowerCase())) {
-            console.log('Vowel');
-            if (currentScore >= 50) {
-                currentScore -= 50;
-            } else {
-                document.getElementById('feedback').innerHTML = "Not enough points - Vowels cost 50 points";
-                console.log('Not enough points');
-            }
-        } else {
-            console.log('Consonant');
-        }
+
 
     }
 }
