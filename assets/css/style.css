@@ -48,13 +48,41 @@ body {
     color: #000;
     transform: scale(1.05);
 }
+.scores {
+    background-color: #111;
+    border: 2px solid #fff;
+    border-radius: 12px;
+    padding: 20px;}
+.gameUi {
+    background-color: #000;
+    border: 2px solid #fff;
+    border-radius: 12px;
+    padding: 20px;
+}
+
+#user-inputs input {
+    border: 2px solid #fff;
+    background-color: transparent;
+    color: #fff;
+    padding: 10px;
+    border-radius: 8px;
+    width: 100%;
+    margin-bottom: 15px;
+}   
+#user-inputs button {
+    width: 100%;
+}
+
+#feedback {
+    color: #ff5757; 
+    font-weight: bold;
+}
 
 #word-display {
-    font-family: 'Ubuntu Mono', monospace;
     font-size: 2rem;
     text-align: center;
     letter-spacing: 1rem;
-
+    color: #fff;
 }
 
 #question {
@@ -69,13 +97,7 @@ body {
     /*rules for user inputs div below (style will apply to both text box and submit button)*/
 }
 
-.scores {
-    background: grey;
-}
 
-.gameUi {
-    background-color: pink;
-}
 
 .rowbg {
     background-color: yellow;
@@ -83,11 +105,3 @@ body {
     min-height: 60vh;
 }
 
-.navbar .game-title {
-    text-align: center;
-    margin: 0;
-}
-
-.navbar .btn-secondary {
-    margin-left: auto;
-}
