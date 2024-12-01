@@ -370,9 +370,18 @@ function guessAnswer(guess) {
             console.log('Incorrect guess');
             currentScore -= 50;
         }
-
-
-
+        // check if the user has guessed the entire answer
+        for (char of answer) {
+            if (guessedAnswer.includes("_")) {
+                console.log('Not solved');
+                return;
+            } else {
+                updateFeedback('SOLVED!');
+                console.log('SOLVED!');
+                updateCurrentScoreDisplay();
+                allowNextQuestion = true;
+            }
+        }
     }
 }
 
