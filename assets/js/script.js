@@ -5,6 +5,7 @@ let answer = '';
 let currentScore = 0;
 let highScore = 0;
 let guessedAnswer = [];
+let allowNextQuestion = false;
 
 window.document.addEventListener('DOMContentLoaded', function () {
     //This code will run after the page loads
@@ -13,7 +14,7 @@ window.document.addEventListener('DOMContentLoaded', function () {
     let nextQuestionButton = document.getElementById('submit-button');
     nextQuestionButton.addEventListener("click", function () {
         // check the user has guessed the answer before moving to the next question
-        if (guessedAnswer.includes("_")) {
+        if (!allowNextQuestion) {
             updateFeedback('You must guess the answer before moving to the next question');
             return;
         }
@@ -93,6 +94,7 @@ function startGame() {
     question = getQuestion();
     // Calls the getAnswer function to get the answer to the question
     answer = getAnswer(question);
+    allowNextQuestion = false;
     guessedAnswer.length = 0;
     let i = 0;
 
@@ -342,6 +344,8 @@ function guessAnswer(guess) {
             }
             currentScore += awardScore;
             updateCurrentScoreDisplay();
+            allowNextQuestion = true;
+            revealAnswer(guess.toLowerCase());
         } else {
             updateFeedback('Incorrect - Guess again!');
             console.log('INCORRECT!');
@@ -391,6 +395,17 @@ function revealLetter(guess) {
     }
     for (i of positions) {
         guessedAnswer[i] = answer[i];
+    }
+    updateQuestionDisplay();
+    updateCurrentScoreDisplay();
+}
+
+function revealAnswer(guess) {
+    // Updates the guessedAnswer array with the correct answer
+    let i = 0;
+    for (char of answer) {
+        guessedAnswer[i] = char;
+        i++;
     }
     updateQuestionDisplay();
     updateCurrentScoreDisplay();
