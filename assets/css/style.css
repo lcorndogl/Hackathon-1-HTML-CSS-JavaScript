@@ -11,6 +11,10 @@ body {
     box-shadow: 0 4px 8px rgba(255, 255, 255, 0.1); 
     border-radius: 8px;
     padding: 10px 20px;
+    text-shadow: -1px 0 #000, 0 1px #000, 1px 0 #000, 0 -1px #000;
+}
+.navbar:hover {
+    text-shadow: -1px 0 whitesmoke, 0 1px white, 1px 0 white, 0 -1px white;
 }
 .game-title {
     font-size: 3rem;
@@ -134,4 +138,9 @@ body {
 #user-guess::placeholder {
     color: #656565;
     opacity: 0.5;
+}
+
+#user-guess::placeholder {
+    color: #656565;
+    opacity: 1;
 }
