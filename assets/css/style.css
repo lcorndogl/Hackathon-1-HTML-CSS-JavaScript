@@ -1,88 +1,110 @@
+body {
+    background-color: #000; 
+    color: #fff; 
+    font-family: 'Ubuntu Mono', monospace;
+    margin: 0;
+    padding: 0;
+
+}
 .navbar {
-    background-color: #ffffff; 
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
+    background-color: #111; 
+    box-shadow: 0 4px 8px rgba(255, 255, 255, 0.1); 
     border-radius: 8px;
     padding: 10px 20px;
 }
 .game-title {
-    font-family: 'Ubuntu Mono', monospace;
     font-size: 3rem;
     font-weight: 700;
     text-transform: uppercase;
-    color: #2c3e50;
+    color: #fff;
     letter-spacing: 2px;
-}
-.navbar-brand {
-    font-size: 1.8rem; 
-    font-weight: 600; 
-    color: #5a5a5a;
-    text-align: center;
-    margin: 0 auto;
-    display: block;
 }
 
 .navbar button {
-    border-radius: 50px; 
+    border-radius: 50px;
+    background-color: #333;
+    color: #fff;
     transition: background-color 0.3s ease, transform 0.3s ease;
 }
 
 .navbar button:hover {
-    background-color: #000000;
-    color: white;
+    background-color: #555;
     transform: scale(1.05);
 }
 .btn {
-    border-radius: 8px; 
-    padding: 10px 20px;
+    border: 2px solid #fff;
+    border-radius: 8px;
+    background-color: transparent;
+    color: #fff;
     font-size: 1rem;
     font-weight: 600;
     text-transform: uppercase;
+    padding: 10px 20px;
     transition: background-color 0.3s ease, transform 0.3s ease;
 }
-.btn-secondary {
-    background-color: #313436;
-    color: white;
+
+.btn:hover {
+    background-color: #fff;
+    color: #000;
+    transform: scale(1.05);
+}
+.scores {
+    background-color: #111;
+    border: 2px solid #fff;
+    border-radius: 12px;
+    padding: 20px;}
+.gameUi {
+    background-color: #000;
+    border: 2px solid #fff;
+    border-radius: 12px;
+    padding: 20px;
+}
+
+#user-inputs input {
+    border: 2px solid #fff;
+    background-color: transparent;
+    color: #fff;
+    padding: 10px;
+    border-radius: 8px;
+    width: 100%;
+    margin-bottom: 15px;
+}   
+#user-inputs button {
+    width: 100%;
+}
+
+#feedback {
+    color: #ff5757; 
+    font-weight: bold;
 }
 
 #word-display {
-    font-family: 'Ubuntu Mono', monospace;
     font-size: 2rem;
     text-align: center;
     letter-spacing: 1rem;
-
+    color: #fff;
 }
 
-#question {
-    /*rules for question h2 text below*/
+#prev-attempts {
+    background-color: transparent;
+    border: 2px solid #fff;
+    border-radius: 8px;
+    padding: 10px;
+    color: #fff;
 }
 
-#worddisplay {
-    /*rules for word display text below*/
-}
-
-#userinputs {
-    /*rules for user inputs div below (style will apply to both text box and submit button)*/
-}
-
-.scores {
-    background: grey;
-}
-
-.gameUi {
-    background-color: pink;
+.list-group-item {
+    background-color: #000;
+    border: none;
+    color: #fff;
+    padding: 10px;
 }
 
 .rowbg {
-    background-color: yellow;
-    padding: 10px;
+    background-color: #222;
+    border: 2px solid #fff;
+    border-radius: 12px;
+    padding: 20px;
     min-height: 60vh;
 }
 
-.navbar .game-title {
-    text-align: center;
-    margin: 0;
-}
-
-.navbar .btn-secondary {
-    margin-left: auto;
-}
