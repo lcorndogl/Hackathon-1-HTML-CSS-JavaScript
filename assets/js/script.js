@@ -237,6 +237,11 @@ function getAnswer(question) {
     return qAnswer.answer;
 }
 
+function updateFeedback(feedback) {
+    // Update the feedback display
+    document.getElementById('feedback').innerText = feedback;
+}
+
 function updateQuestionDisplay() {
     // Update the question display
     let questionDisplay = document.getElementById('word-display');
