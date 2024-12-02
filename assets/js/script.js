@@ -269,7 +269,28 @@ function updateCurrentScoreDisplay() {
 }
 function updateLettersUsedDisplay() {
     // Update the letters guessed in alphabetical order - Thanks steve for the sort idea!
+    const lettersUsed = [];
+
+    //Add letters to the guessed letters array in alphabetical order
     document.getElementById("letters-used").innerText = guessedLetters.sort().join(", ");
+console.log('checkrunning');
+
+    // Cycle through the letters in a new string/array guessed letters array
+    for (let char in guessedLetters) {
+        if (answer.includes(guessedLetters[char])) {
+            lettersUsed.push(`<span class="correct"> ${guessedLetters[char]}</span>`);
+        } else {
+            lettersUsed.push(`<span class="incorrect"> ${guessedLetters[char]}</span>`);
+        }
+
+    }
+    console.log(lettersUsed);
+    document.getElementById("letters-used").innerHTML = lettersUsed.join(", ");
+
+
+    // Add the (in)correct class to the letters in the guessed letters array
+
+    // Update the letters Used Display with the 
 }
 
 function updateHighScoreDisplay() {
