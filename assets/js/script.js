@@ -10,6 +10,8 @@ let allowNextQuestion = false;
 window.document.addEventListener('DOMContentLoaded', function () {
     //This code will run after the page loads
     initialiseGame();
+
+    // Functionality for the next question button to work
     let nextQuestionButton = document.getElementById('submit-button');
     nextQuestionButton.addEventListener("click", function () {
         // check the user has guessed the answer before moving to the next question
@@ -21,6 +23,7 @@ window.document.addEventListener('DOMContentLoaded', function () {
         startGame();
     });
 
+    // Functionality for the new game button to work
     let newGameButton = document.getElementById('new-game-button');
     newGameButton.addEventListener("click", function () {
         //New game button funtionality goes here
@@ -30,59 +33,67 @@ window.document.addEventListener('DOMContentLoaded', function () {
         attempt3 = document.getElementById('attempt-2').innerText;
         attempt2 = document.getElementById('attempt-1').innerText;
         attempt1 = document.getElementById('current-score').innerText;
-        console.log(attempt3, attempt2, attempt1);
 
         // Updates the attempts in the DOM
         document.getElementById('attempt-3').innerText = attempt3;
         document.getElementById('attempt-2').innerText = attempt2;
         document.getElementById('attempt-1').innerText = attempt1;
 
+        // Check if the score is higher than the previous highscore
+        // Update high score if it is
         if (currentScore > highScore) {
             highScore = currentScore;
             updateHighScoreDisplay();
         }
         initialiseGame();
-
     });
 
-
+    // Listens for enter and for user guesses
     document.getElementById('user-guess').addEventListener('keydown', function (event) {
         if (event.key === 'Enter') {
-
+            // takes the user input 
             let guess = document.getElementById('user-guess').value;
             guessAnswer(guess);
             updateCurrentScoreDisplay();
             updateLettersUsedDisplay();
+            // clears the text box after user guess 
             document.getElementById('user-guess').value = '';
         }
     });
 
-
     let cheatButton = document.getElementById('cheat-button')
     cheatButton.addEventListener('click', function () {
         //Cheat button funtionality goes here
-
         let cheatCost = 100;
+        // Check if the user has enough points to cheat 
         if (currentScore >= cheatCost) {
             currentScore -= cheatCost;
             console.log('Cheat');
             cheat();
         } else {
-            //check syntax
+            // If the user does not have enough points to cheat display an error message
             cheatButton.innerText = 'Not enough points';
         }
     })
 })
 
+/** Initialises a new game
+ * Should update attempts 1/2/3, highscore if applicable
+ * Reset rest of the page to initial state
+ */
 function initialiseGame() {
     //Initialise the game
+    // Gets a question and answer pair 
     startGame();
     currentScore = 200;
 
+    // Update the DOM 
     updateQuestionText();
     updateQuestionDisplay();
     updateCurrentScoreDisplay();
     updateHighScoreDisplay();
+    // Cheakily change the submit button text to "Next Question"
+    // without having to modify the HTML/logic referring to the button
     document.getElementById('submit-button').innerText = "Next Question";
 }
 
@@ -96,7 +107,7 @@ function startGame() {
     allowNextQuestion = false;
     guessedAnswer.length = 0;
     let i = 0;
-
+    // Display masked answer on screen without replacing spaces
     for (char of answer) {
         if (char === " ") {
             guessedAnswer[i] = char;
@@ -104,22 +115,11 @@ function startGame() {
         else {
             guessedAnswer[i] = "_";
         }
-        // console.log(char);
-        // console.log(i);
         i++;
     }
 
-    // Console log to ensure the question and answers are retrieved correctly
-    // console.log(question);
-    // console.log(answer);
-
-    // console.log(guessedLetters);
-    // console.log(guessedLetters.length);
-
     // Reset the guessed letters array
     guessedLetters.length = 0;
-    // console.log(guessedLetters.length);
-    // console.log(guessedLetters);
     updateQuestionText();
     updateQuestionDisplay();
     document.getElementById("letters-used").innerText = "None - Make your first guess!";
@@ -243,11 +243,13 @@ function getAnswer(question) {
     return qAnswer.answer;
 }
 
+/** Add feedback for the user to the DOM */
 function updateFeedback(feedback) {
     // Update the feedback display
     document.getElementById('feedback').innerHTML = feedback;
 }
 
+/** Updates the masked question in the DOM */
 function updateQuestionDisplay() {
     // Update the question display
     let questionDisplay = document.getElementById('word-display');
@@ -255,47 +257,43 @@ function updateQuestionDisplay() {
     questionDisplay.innerText = updateValue;
 }
 
+/** Updates the question in the DOM */
 function updateQuestionText() {
     // Update the question text
     let questionText = document.getElementById('question');
     questionText.innerText = question;
 }
 
+/** Updates the current score in the DOM */
 function updateCurrentScoreDisplay() {
     // Update the current score display
     document.getElementById('current-score').innerText = currentScore;
 
 }
+
+/** Updates the letters used in the DOM */
 function updateLettersUsedDisplay() {
     // Update the letters guessed in alphabetical order - Thanks steve for the sort idea!
     const lettersUsed = [];
 
     // Cycle through the letters in a new string/array guessed letters array
     // Add the (in)correct class to the letters in the guessed letters array
-
     for (let char in guessedLetters.sort()) {
         if (answer.includes(guessedLetters[char])) {
             lettersUsed.push(`<span class="correct"> ${guessedLetters[char]}</span>`);
         } else {
             lettersUsed.push(`<span class="incorrect"> ${guessedLetters[char]}</span>`);
         }
-
     }
-    console.log(lettersUsed);
+    // Update the letters Used in the DOM
     document.getElementById("letters-used").innerHTML = lettersUsed.join(", ");
-
-
-
-    // Update the letters Used Display with the 
 }
 
+/** Updates the highscore */
 function updateHighScoreDisplay() {
     // Update the current score display
-
     document.getElementById('high-score').innerText = highScore;
-
 }
-
 
 /** This function should be run when the user makes a guess
  * Guesses should be triggered by clicking the enter key
@@ -318,7 +316,6 @@ function guessAnswer(guess) {
     // Reset feedback elements on next user action
     document.getElementById('cheat-button').innerText = 'Cheat';
     updateFeedback('<br>');
-    console.log(guess)
 
     //check if the guess is valid
     // check that the guess is not an empty string
@@ -330,27 +327,19 @@ function guessAnswer(guess) {
     // check that the guess is a valid character
     for (let char of guess) {
         if (!validGuess.includes(char.toLowerCase())) {
-            console.log('Invalid guess');
             updateFeedback('Invalid guess - only letters are valid guesses unless you are guessing the entire answer where spaces are also valid');
             return;
         }
-        console.log(guess.length);
-        console.log("Char check ran");
-
     }
 
     // check if the user's guess is a vowel, if it is subtract 50 points from the user's score
     if (vowels.includes(guess.toLowerCase())) {
-        console.log('Vowel');
         if (currentScore >= 50) {
             currentScore -= 50;
         } else {
             updateFeedback('Not enough points - Vowels cost 50 points');
-            console.log('Not enough points');
             return;
         }
-    } else {
-        console.log('Consonant');
     }
 
     // Checks if the user has guessed the entire answer
@@ -358,33 +347,31 @@ function guessAnswer(guess) {
     if (guess.trim().length > 1) {
         // Check if the answer is correct and display Solved or Incorrect
         if (guess.toLowerCase() === answer.toLowerCase()) {
-            // guessedAnswer = answer;
-
             updateQuestionDisplay();
             updateFeedback('SOLVED!');
-            console.log('SOLVED!');
+            // Calculate the score for correct answers
             let awardScore = (1000 - guessedLetters.length ** 2 - guessedLetters.length * 100);
             if (awardScore < 0) {
                 return;
             }
+
+            // Update the score on the DOM
             currentScore += awardScore;
             updateCurrentScoreDisplay();
+            // Allow the next question to be generated
             allowNextQuestion = true;
+            // Updates the answer in the DOM when guessing a full phrase
             revealAnswer(guess.toLowerCase());
         } else {
             updateFeedback('Incorrect - Guess again!');
-            console.log('INCORRECT!');
         }
     } else {
         // check if the user has already guessed that letter, if they have display an error
-        console.log(guessedLetters);
         if (guessedLetters.includes(guess.toLowerCase())) {
             updateFeedback('You have already guessed that letter, please try another');
-            console.log('You have already guessed that letter');
             return;
         } else {
             guessedLetters.push(guess.toLowerCase());
-            console.log(guessedLetters);
         }
 
         // check if the user's guess is in the answer, if it is reveal the letter in the answer
@@ -392,17 +379,14 @@ function guessAnswer(guess) {
             revealLetter(guess.toLowerCase())
             currentScore += 100;
         } else {
-            console.log('Incorrect guess');
             currentScore -= 50;
         }
         // check if the user has guessed the entire answer
         for (char of answer) {
             if (guessedAnswer.includes("_")) {
-                console.log('Not solved');
                 return;
             } else {
                 updateFeedback('SOLVED!');
-                console.log('SOLVED!');
                 updateCurrentScoreDisplay();
                 allowNextQuestion = true;
             }
@@ -415,7 +399,6 @@ function guessAnswer(guess) {
 */
 function revealLetter(guess) {
     // Creates array to store the locations the guessed letter occurs at
-
     positions = [];
     let i = 0;
     // checks if the guessed character occurs at each position in the answer
@@ -434,6 +417,7 @@ function revealLetter(guess) {
     updateCurrentScoreDisplay();
 }
 
+/** Updates the DOM with the correct answer */
 function revealAnswer(guess) {
     // Updates the guessedAnswer array with the correct answer
     let i = 0;
@@ -450,26 +434,25 @@ function revealAnswer(guess) {
  * If the user does it will reveal a letter of the answer
  */
 function cheat() {
+    // Create an array of the positions of the blank spaces in guessedAnswer
     let stillBlank = [];
-    //create an array of the positions of the blank spaces in guessedAnswer
 
+    // Populates the array position of unguessed characters
     for (let i = 0; i < guessedAnswer.length; i++) {
         if (guessedAnswer[i] === "_") {
             stillBlank.push(i);
         }
-        console.log(stillBlank);
     }
+    // Generates a random number between 0 and the length of the stillBlank array
+    // Selects the unguessed character in the position returned of the stillBlank array
     let randomPos = Math.floor(Math.random() * stillBlank.length);
     let cheatCharPos = stillBlank[randomPos];
-
     let cheatChar = answer[cheatCharPos];
     revealLetter(cheatChar);
-    //Add the cheat letter to the guessed letters array
+    // Add the cheat letter to the guessed letters array
     guessedLetters.push(cheatChar);
     updateLettersUsedDisplay();
 
     //Update guessedAnswer with the cheat letter
     guessedAnswer[cheatCharPos] = cheatChar;
-
-    //If the revealLetter function also adds score, this function will do an appropriate subtraction imediately below
 }
