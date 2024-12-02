@@ -72,7 +72,7 @@ Graphing methods for scores over time could also be investigated and implemented
 
 ## Design
 
-Abdulmajeed
+We selected a black and white simplistic theme, to resemble the simplicity of the game we were creating. The title in the navbar was a real struggle, looking at the wireframes, we planned for the title to be at the centre of the page but unfortunatly we was not able implement that so we had to innovate with what we had been given and we used AI to add an hover effect to the title only revealing the title when it is hovered over but when off it stays transparent to remove the sense of the title not being in the correct place.  The border sizes was done using AI to save time from trial and error. All buttons was styled to be unique since each one serves its own function and 1 is not related to the other. Font sizes we decided on when planning our project, we was on the look out for more simple retro game style fonts to match the theme.
 
 ## Features
 
@@ -234,6 +234,31 @@ By design, if we want to insert headings between in future.
 
 Possible heading:
 This refers to the game area, and wasn't styled as a heading.
+
+Considerations from JS validation:
+All of the warnings returned related to versioning, specifically with LET and CONST.
+
+The HTML and CSS validated without error.
+
+
+
+Design - We selected a black and white simplistic theme, to resemble the simplicity of the game we were creating. The title in the navbar was a real struggle, looking at the wireframes, we planned for the title to be at the centre of the page but unfortunatly we was not able implement that so we had to innovate with what we had been given and we used AI to add an hover effect to the title only revealing the title when it is hovered over but when off it stays transparent to remove the sense of the title not being in the correct place.  The border sizes was done using AI to save time from trial and error. All buttons was styled to be unique since each one serves its own function and 1 is not related to the other. Font sizes we decided on when planning our project, we was on the look out for more simple retro game style fonts to match the theme.
+Features - Gameplay
+Future Features - Mostly implemented (as a stretch goal, ie: colours)
+-- Score Persistence
+-- Some responsiveness tidy up
+
+Technologies User - Copy pasta
+
+Deployment - Deployment Section
+
+Testing
+--validation
+--lighthouse
+-- console logs as building to ensure triggers (now removed as tidy up exercise)
+
+
+Credits - Exists
 
 
 ![HTML Validation](docs/audits/validation-WAVE.png "Error Check from https://wave.webaim.org/report#/https://lcorndogl.github.io/Hackathon1-Wheel-of-Fortune/")
