@@ -1,11 +1,5 @@
 ## Contents
 
--[proposal](#proposal)
-
--[ai integration][AI]
-
--[wireframing](#wireframing)
-
 ## Proposal
 
 We will create a text-phrase guessing game. The game will present an common, idiomatic phrase, and the user will guess vowels and consonants, or attempt to guess the phrase as a whole. Guesses will be tracked, and a score calculated at depending on how many letters were guessed before the correct answer was arrived at.
@@ -46,7 +40,17 @@ This if test was one entirely derived by ai, along with the plan arrived at to r
 ## Future Features
 
 The game could have a login funtion, to allow users to track their all-time high scores, and keep a record of successful and unsuccesful solves.
+
 A timer could be added to the game for a more configurable challenge. This could also be tracked across users, and used to generate leaderboards based on fastest times and highest scores.
+
+Future features: A number of things that were proposed as future features or stretch goal were implemented, such as high score tracking and previous attempted letters being colour coded.
+
+Future features that could still be implemented with more time and integration of additional technologies include use of cookies to makes scores persistent across sessions, or use of a backend server to allow users to create accounts, allowing them to track their scores across multiple sessions and devices.
+
+Other features could include social media integration, and the use of APIs to post scores to social media platforms automatically.
+
+Graphing methods for scores over time could also be investigated and implemented.
+
 
 ## Deployment
 
@@ -66,17 +70,6 @@ A timer could be added to the game for a more configurable challenge. This could
 
 [Cloud Convert - Image manipulation](https://cloudconvert.com/png-to-webp "Convert image filesize and format to webp")
 
-[aiIntegrationDefinition]: #AI
-
-Future features: A number of things that were proposed as future features or stretch goal were implemented, such as high score 
-tracking, previous attempted letters being colour coded. 
-Future features that could still be implemented with more time and integration of additional technologies include use of cookies to 
-makes scores persistent across sessions, or use of a backend server to allow users to create accounts, allowing them to track their 
-scores across multiple sessions and devices.
-Other features could include social media integration, and the use of APIs to post scores to social media platforms automatically.
-Graphing methods for scores over time could also be investigated and implemented.
-
-
 Considerations from the WAVE validation:
 form unlabelled -
 The form is unlabelled by design, as it is hidden from the user.
@@ -85,9 +78,9 @@ Low-contrast header -
 The header text is defined by text-shadow, the colour is identical to the background by design.
 
 Low-contrast cheat button -
-The error is caused by the similarity of the default and hover appearances and can be disregarded. Added a 1px border to the cheat button. 
+The error is caused by the similarity of the default and hover appearances and can be disregarded. Added a 1px border to the cheat button.
 
-Skipped heading level: 
+Skipped heading level:
 By design, if we want to insert headings between in future.
 
 Possible heading:
@@ -96,9 +89,8 @@ This refers to the game area, and wasn't styled as a heading.
 Considerations from JS validation:
 All of the warnings returned related to versioning, specifically with LET and CONST.
 
-The HTML and CSS validated without error. 
+The HTML and CSS validated without error.
 
-
-Bug report FIXED: Casting the lower or upper case to the method that passed red or green classes to the DOM behaved incorrectly, 
+Bug report FIXED: Casting the lower or upper case to the method that passed red or green classes to the DOM behaved incorrectly,
 colouring a correct guess red when it's case differed.
--This bug was fixed with use of toLowerCase in the last stages of development. 
+-This bug was fixed with use of toLowerCase in the last stages of development.
