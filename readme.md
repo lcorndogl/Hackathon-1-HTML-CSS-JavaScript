@@ -1,4 +1,4 @@
-## [Deployment Link](https://lcorndogl.github.io/Hackathon1-Wheel-of-Fortune/ "Link to the live deployment")
+# [Deployment Link](https://lcorndogl.github.io/Hackathon1-Wheel-of-Fortune/ "Link to the live deployment")
 
 ## Contents
 
@@ -207,6 +207,7 @@ The above demonstrates Copilot missing a linked asset, and taking it's best gues
 ![CSS Validation](docs/audits/validation-css.png "Error Check from https://jigsaw.w3.org/css-validator/validator?uri=https%3A%2F%2Flcorndogl.github.io%2FHackathon1-Wheel-of-Fortune%2F&profile=css3svg&usermedium=all&warning=1&vextwarning=&lang=en")
 
 #### JavaScript-Validation
+
  [JS Validation Link](https://jshint.com)
 
 ![HTML Validation](docs/audits/validation-js.png "Error Check from https://jshint.com")
@@ -217,49 +218,11 @@ The above demonstrates Copilot missing a linked asset, and taking it's best gues
 
 There were several considerations from the WAVE validation which we have reviewed and decided upon the appropriate actions for, these are:
 
-Errors - The error was in relation to an unlabelled form element, however this element is solely used to provide feedback to the user, as such it is supposed to be invisible unless there is any feedback to give
+Errors - The error was in relation to an unlabelled form element, however this element is solely used to provide feedback to the user, as such it is supposed to be invisible unless there is any feedback to give to the user which will populate the content via JavaScript.
 
-Considerations from the WAVE validation:
-form unlabelled -
-The form is unlabelled by design, as it is hidden from the user.
+Contrast Errors - These are returned on the game title and cheat button. We decided the best way to deal with these would be the use of a 1px text-shadow on them to enforce contrast and readability between the text and any possible background. The WAVE validator doesn't seem to take this into account when checking for accessibility as you can't get much more contrasting than white and black.
 
-Low-contrast header -
-The header text is defined by text-shadow, the colour is identical to the background by design.
-
-Low-contrast cheat button -
-The error is caused by the similarity of the default and hover appearances and can be disregarded. Added a 1px border to the cheat button.
-
-Skipped heading level:
-By design, if we want to insert headings between in future.
-
-Possible heading:
-This refers to the game area, and wasn't styled as a heading.
-
-Considerations from JS validation:
-All of the warnings returned related to versioning, specifically with LET and CONST.
-
-The HTML and CSS validated without error.
-
-
-
-Design - We selected a black and white simplistic theme, to resemble the simplicity of the game we were creating. The title in the navbar was a real struggle, looking at the wireframes, we planned for the title to be at the centre of the page but unfortunatly we was not able implement that so we had to innovate with what we had been given and we used AI to add an hover effect to the title only revealing the title when it is hovered over but when off it stays transparent to remove the sense of the title not being in the correct place.  The border sizes was done using AI to save time from trial and error. All buttons was styled to be unique since each one serves its own function and 1 is not related to the other. Font sizes we decided on when planning our project, we was on the look out for more simple retro game style fonts to match the theme.
-Features - Gameplay
-Future Features - Mostly implemented (as a stretch goal, ie: colours)
--- Score Persistence
--- Some responsiveness tidy up
-
-Technologies User - Copy pasta
-
-Deployment - Deployment Section
-
-Testing
---validation
---lighthouse
--- console logs as building to ensure triggers (now removed as tidy up exercise)
-
-
-Credits - Exists
-
+Possible Heading - This is because the WAVE tool places very high prominence on the user-guess field which it is assuming is an important heading element.
 
 ![HTML Validation](docs/audits/validation-WAVE.png "Error Check from https://wave.webaim.org/report#/https://lcorndogl.github.io/Hackathon1-Wheel-of-Fortune/")
 
