@@ -61,7 +61,7 @@ window.document.addEventListener('DOMContentLoaded', function () {
         }
     });
 
-    let cheatButton = document.getElementById('cheat-button')
+    let cheatButton = document.getElementById('cheat-button');
     cheatButton.addEventListener('click', function () {
         //Cheat button funtionality goes here
         let cheatCost = 100;
@@ -74,8 +74,8 @@ window.document.addEventListener('DOMContentLoaded', function () {
             // If the user does not have enough points to cheat display an error message
             cheatButton.innerText = 'Not enough points';
         }
-    })
-})
+    });
+});
 
 /** Initialises a new game
  * Should update attempts 1/2/3, highscore if applicable
@@ -236,7 +236,7 @@ function getAnswer(question) {
         { question: "What is the smallest country in Africa?", answer: "Saint Helena, Ascension and Tristan da Cunha" },
         { question: "What is the largest desert in Africa?", answer: "Sahara Desert" },
         { question: "What is the smallest desert in Africa?", answer: "Red Desert" }
-    ]
+    ];
     // Find the answer that corresponds to the question that was passed in
     // Created by CoPilot
     const qAnswer = answers.find(ans => ans.question === question);
@@ -376,7 +376,7 @@ function updateHighScoreDisplay() {
 
         // check if the user's guess is in the answer, if it is reveal the letter in the answer
         if (answer.toLowerCase().includes(guess.toLowerCase())) {
-            revealLetter(guess.toLowerCase())
+            revealLetter(guess.toLowerCase());
             currentScore += 100;
         } else {
             currentScore -= 50;
