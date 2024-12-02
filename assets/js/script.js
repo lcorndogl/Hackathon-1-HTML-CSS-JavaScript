@@ -295,23 +295,23 @@ function updateHighScoreDisplay() {
     document.getElementById('high-score').innerText = highScore;
 }
 
-/** This function should be run when the user makes a guess
- * Guesses should be triggered by clicking the enter key
- * This function should check if the guess is correct and display the result
- */
-function guessAnswer(guess) {
-    // Check if the question has already been answered
-    //to prevent the user from repeatedly answering the same question for points
-    if (allowNextQuestion) {
-        updateFeedback('You have already solved this question');
-        return;
-    }
+    /** This function should be run when the user makes a guess
+     * Guesses should be triggered by clicking the enter key
+     * This function should check if the guess is correct and display the result
+     */
+    function guessAnswer(guess) {
+        // Check if the question has already been answered
+        //to prevent the user from repeatedly answering the same question for points
+        if (allowNextQuestion) {
+            updateFeedback('You have already solved this question');
+            return;
+        }
 
-    // Arrays containing the vowels and consonants
-    const vowels = ['a', 'e', 'i', 'o', 'u'];
-    const consonants = ['b', 'c', 'd', 'f', 'g', 'h', 'j', 'k', 'l', 'm', 'n', 'p', 'q', 'r', 's', 't', 'v', 'w', 'x', 'y', 'z'];
-    //Array of valid guesses
-    const validGuess = [].concat(vowels, consonants, " ");
+        // Arrays containing the vowels and consonants
+        const vowels = ['a', 'e', 'i', 'o', 'u'];
+        const consonants = ['b', 'c', 'd', 'f', 'g', 'h', 'j', 'k', 'l', 'm', 'n', 'p', 'q', 'r', 's', 't', 'v', 'w', 'x', 'y', 'z'];
+        //Array of valid guesses
+        const validGuess = [].concat(vowels, consonants, " ");
 
     // Reset feedback elements on next user action
     document.getElementById('cheat-button').innerText = 'Cheat';
