@@ -1,19 +1,32 @@
+## [Deployment Link](https://lcorndogl.github.io/Hackathon1-Wheel-of-Fortune/ "Link to the live deployment")
+
 ## Contents
 
 ## Proposal
 
 We will create a text-phrase guessing game. The game will present an common, idiomatic phrase, and the user will guess vowels and consonants, or attempt to guess the phrase as a whole. Guesses will be tracked, and a score calculated at depending on how many letters were guessed before the correct answer was arrived at.
 
-## AI Integration
+## AI
+
+### Integration
 
 As a useful tool for sampling a zeitgeist of English text, ai was helpful for presenting uncommon and common idiomatic phrases.
-Ai was also used to assist with generating user stories, the content generated was hand edited for suitability.
+
+AI was also used to assist with generating user stories, the content generated was hand edited for suitability.
+
+AI was also used to generate the questions and answers that were used in the arrays - Manually validated and adjusted some answers which were not as expected to ensure the answers are correct.
+
+### Codeing with AI
+
+This if test was one entirely derived by ai, along with the plan arrived at to refine the first solution we arrived at
+
+![Ai_code_plan](docs/Promptexample.png)
 
 ## User Experience
 
 ### User Stories
 
-As a user I want to be able to generate questions that show up on screen, and guess what the answer is - wheel of fortune style
+As a user I want to be able to generate questions that show up on screen, and guess what the answer is - wheel of fortune style.
 
 As a user I want to be able to see which letters I have already guessed.
 
@@ -34,12 +47,6 @@ Alternate looks were also proposed as refinements
 Demonstrations of the scalability of the site to larger devices are wireframed below
 
 ![Wireframe4](docs/image_2024-11-27_142015802_720.png)
-
-## Coding with AI
-
-This if test was one entirely derived by ai, along with the plan arrived at to refine the first solution we arrived at
-
-![Ai_code_plan](docs/Promptexample.png)
 
 ## Future Features
 
@@ -69,8 +76,27 @@ Abdulmajeed
 
 ## Features
 
+Instructions Modal for the user to see how to play the game.
 
+Randomly selected question.
 
+Guesses displayed on screen.
+
+Letters used are updated and colour coded for correct/incorrect guesses.
+
+Feedback to the user in case of guesses (Correct/Incorrect/Invalid).
+
+Scores for correct guesses, per letter and a bigger amount for guessing the whole phrase.
+
+Previous 3 games are tracked.
+
+Highscore is tracked across a single session.
+
+New Game button resets the game area to the start condition and updates the previous score/high score (if applicable)
+
+Buttons react on hover so the user knows it will be the one they click.
+
+Next Question button so the user can continue their currrent game. (Validated so it can only be used after a question is solved).
 
 ## Deployment
 
@@ -92,7 +118,11 @@ Low Contrast Cheat Button - Added text shadow around for contrast.
 
 Skipped heading - Set to h1 and used the class of the relevant heading for formatting.
 
-Casting the lower or upper case to the method that passed red or green classes to the DOM behaved incorrectly colouring a correct guess red when it's case differed. - Casted to lowerCase with toLowerCase for checks in line with the rest of the code.
+Casting the lower or upper case to the method that passed red or green classes to the DOM behaved incorrectly colouring a correct guess red when it's case differed - Casted to lowerCase with toLowerCase for checks in line with the rest of the code.
+
+Next question button can be used at will - Added a boolean to say whether triggering the next question method is allowed behind the scenes.
+
+User can repeadly make the same guess to farm score - Added validation to ensure that the guess entered is not already used, in the case of guessing the full word if the entire answer is already displayed on screen provide feedback informing the user they already solved the question.
 
 ### Unresolved
 
@@ -102,11 +132,19 @@ All known bugs are resolved
 
 ### HTML
 
-Basic HTML was used to create the various areas of the page
+Basic HTML was used to create the various areas of the page.
 
 ### CSS
 
+CSS was used to create the styling for the page layout, including several classes and IDs that the JavaScript adds and removes from the HTML depending on the inputs.
+
 ### JavaScript
+
+JavaScript was used to cater to all of the back end functionality of the project and provide the interactivity for the user. This includes but is not limited to:
+
+Get question/answer pairs.
+
+Validate Guesses (Single character/Guess entire phrase - presenting error on invalid inputs (Non-alphabetic/Non-space special characters))
 
 ### Git
 
@@ -128,11 +166,17 @@ CoPilot has been used for code suggestions, as well as troubleshooting logic occ
 
 ### bash terminal
 
-Bash terminal was used for adding and commiting files, as well as swapping between branches, merging between branches and easy structure/
+Bash terminal was used for adding and commiting files, as well as swapping between branches, merging between branches and easy structure/file creation (mkdir/touch).
 
 ### nano
 
+NaNo was used to efficiently present merge conflicts for resolution, and also to handle local commit messages upon merging main into the local branch.
+
 ## Testing
+
+### Console Logs
+
+Console logs were originally scattered around the JavaScript code salt-bae style to assist in seeing what code was executing, where it was breaking & that the logic was functioning as expected. These console.logs were removed at the end of the project as it was not necessary for the functioning of the project and was just used to see what was happening behind the scenes during the development phase.
 
 ### Troubleshooting
 
@@ -144,19 +188,36 @@ The above demonstrates Copilot missing a linked asset, and taking it's best gues
 
 ### Responsivity Images
 
+[Responsiveness Link](https://ui.dev/amiresponsive?url=https://lcorndogl.github.io/Hackathon1-Wheel-of-Fortune/ "Am I responsive link")
+
+![Am I Responsive Screenshot](docs/audits/am-i-responsive.png "Image of the responsiveness check")
+
 ### Validation
 
+#### HTML-Validation
 
+ [HTML Validation Link](https://validator.w3.org/nu/?doc=https%3A%2F%2Flcorndogl.github.io%2FHackathon1-Wheel-of-Fortune%2F)
 
-### Lighthouse Scores
+![HTML Validation](docs/audits/validation-html.png "Error Check from https://validator.w3.org/nu/?doc=https%3A%2F%2Flcorndogl.github.io%2FHackathon1-Wheel-of-Fortune%2F")
 
-## Credits
+#### CSS-Validation
 
-[Stack Overflow - How to form an array of question/answer pairs](https://stackoverflow.com/questions/37252041/storing-quiz-questions-in-array-of-objects)
+ [CSS Validation Link](https://jigsaw.w3.org/css-validator/validator?uri=https%3A%2F%2Flcorndogl.github.io%2FHackathon1-Wheel-of-Fortune%2F&profile=css3svg&usermedium=all&warning=1&vextwarning=&lang=en)
 
-[MDN Docs - Letter spacing code snippet to ensure there is space between letters without HTML stripping out multiple space character whitespaces](https://developer.mozilla.org/en-US/docs/Web/CSS/letter-spacing)
+![CSS Validation](docs/audits/validation-css.png "Error Check from https://jigsaw.w3.org/css-validator/validator?uri=https%3A%2F%2Flcorndogl.github.io%2FHackathon1-Wheel-of-Fortune%2F&profile=css3svg&usermedium=all&warning=1&vextwarning=&lang=en")
 
-[Cloud Convert - Image manipulation](https://cloudconvert.com/png-to-webp "Convert image filesize and format to webp")
+#### JavaScript-Validation
+ [JS Validation Link](https://jshint.com)
+
+![HTML Validation](docs/audits/validation-js.png "Error Check from https://jshint.com")
+
+#### Wave-Validation
+
+[WAVE Validator](https://wave.webaim.org/report#/https://lcorndogl.github.io/Hackathon1-Wheel-of-Fortune/ "Link to the wave validator for the accessibility")
+
+There were several considerations from the WAVE validation which we have reviewed and decided upon the appropriate actions for, these are:
+
+Errors - The error was in relation to an unlabelled form element, however this element is solely used to provide feedback to the user, as such it is supposed to be invisible unless there is any feedback to give
 
 Considerations from the WAVE validation:
 form unlabelled -
@@ -174,27 +235,23 @@ By design, if we want to insert headings between in future.
 Possible heading:
 This refers to the game area, and wasn't styled as a heading.
 
-Considerations from JS validation:
-All of the warnings returned related to versioning, specifically with LET and CONST.
 
-The HTML and CSS validated without error.
+![HTML Validation](docs/audits/validation-WAVE.png "Error Check from https://wave.webaim.org/report#/https://lcorndogl.github.io/Hackathon1-Wheel-of-Fortune/")
 
+### Lighthouse Scores
 
+#### Mobile-Lighthouse-Score
 
-Design - Abdulmajeed
-Features - Gameplay
-Future Features - Mostly implemented (as a stretch goal, ie: colours)
--- Score Persistence
--- Some responsiveness tidy up
+![Mobile Lighthouse Score](docs/audits/lighthouse-mobile.png "Mobile Lighthouse Score")
 
-Technologies User - Copy pasta
+#### Desktop-Lighthouse-Score
 
-Deployment - Deployment Section
+![Desktop Lighthouse Score](docs/audits/lighthouse-desktop.png "Desktop Lighthouse Score")
 
-Testing
---validation
---lighthouse
--- console logs as building to ensure triggers (now removed as tidy up exercise)
+## Credits
 
+[Stack Overflow - How to form an array of question/answer pairs](https://stackoverflow.com/questions/37252041/storing-quiz-questions-in-array-of-objects)
 
-Credits - Exists
+[MDN Docs - Letter spacing code snippet to ensure there is space between letters without HTML stripping out multiple space character whitespaces](https://developer.mozilla.org/en-US/docs/Web/CSS/letter-spacing)
+
+[Cloud Convert - Image manipulation](https://cloudconvert.com/png-to-webp "Convert image filesize and format to webp")
