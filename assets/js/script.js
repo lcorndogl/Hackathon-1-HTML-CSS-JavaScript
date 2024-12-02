@@ -20,7 +20,7 @@ window.document.addEventListener('DOMContentLoaded', function () {
         }
         //Submit button funtionality goes here
         startGame();
-    })
+    });
 
     let newGameButton = document.getElementById('new-game-button');
     newGameButton.addEventListener("click", function () {
@@ -44,7 +44,7 @@ window.document.addEventListener('DOMContentLoaded', function () {
         }
         initialiseGame();
 
-    })
+    });
 
 
     document.getElementById('user-guess').addEventListener('keydown', function (event) {
@@ -56,7 +56,7 @@ window.document.addEventListener('DOMContentLoaded', function () {
             updateLettersUsedDisplay();
             document.getElementById('user-guess').value = '';
         }
-    })
+    });
 
 
     let cheatButton = document.getElementById('cheat-button')
