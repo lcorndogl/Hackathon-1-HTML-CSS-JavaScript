@@ -10,7 +10,6 @@ let allowNextQuestion = false;
 window.document.addEventListener('DOMContentLoaded', function () {
     //This code will run after the page loads
     initialiseGame();
-
     let nextQuestionButton = document.getElementById('submit-button');
     nextQuestionButton.addEventListener("click", function () {
         // check the user has guessed the answer before moving to the next question
@@ -271,12 +270,10 @@ function updateLettersUsedDisplay() {
     // Update the letters guessed in alphabetical order - Thanks steve for the sort idea!
     const lettersUsed = [];
 
-    //Add letters to the guessed letters array in alphabetical order
-    document.getElementById("letters-used").innerText = guessedLetters.sort().join(", ");
-console.log('checkrunning');
-
     // Cycle through the letters in a new string/array guessed letters array
-    for (let char in guessedLetters) {
+    // Add the (in)correct class to the letters in the guessed letters array
+
+    for (let char in guessedLetters.sort()) {
         if (answer.includes(guessedLetters[char])) {
             lettersUsed.push(`<span class="correct"> ${guessedLetters[char]}</span>`);
         } else {
@@ -288,7 +285,6 @@ console.log('checkrunning');
     document.getElementById("letters-used").innerHTML = lettersUsed.join(", ");
 
 
-    // Add the (in)correct class to the letters in the guessed letters array
 
     // Update the letters Used Display with the 
 }
