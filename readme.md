@@ -92,3 +92,8 @@ By design, if we want to insert headings between in future.
 
 Possible heading:
 This refers to the game area, and wasn't styled as a heading.
+
+Considerations from JS validation:
+All of the warnings returned related to versioning, specifically with LET and CONST.
+
+The HTML and CSS validated without error. 
