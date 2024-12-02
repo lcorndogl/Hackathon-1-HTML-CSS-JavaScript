@@ -279,7 +279,7 @@ function updateLettersUsedDisplay() {
     // Cycle through the letters in a new string/array guessed letters array
     // Add the (in)correct class to the letters in the guessed letters array
     for (let char in guessedLetters.sort()) {
-        if (answer.includes(guessedLetters[char])) {
+        if (answer.toLocaleLowerCase().includes(guessedLetters[char].toLowerCase())) {
             lettersUsed.push(`<span class="correct"> ${guessedLetters[char]}</span>`);
         } else {
             lettersUsed.push(`<span class="incorrect"> ${guessedLetters[char]}</span>`);
