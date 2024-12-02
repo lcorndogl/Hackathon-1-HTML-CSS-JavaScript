@@ -97,3 +97,8 @@ Considerations from JS validation:
 All of the warnings returned related to versioning, specifically with LET and CONST.
 
 The HTML and CSS validated without error. 
+
+
+Bug report FIXED: Casting the lower or upper case to the method that passed red or green classes to the DOM behaved incorrectly, 
+colouring a correct guess red when it's case differed.
+-This bug was fixed with use of toLowerCase in the last stages of development. 
