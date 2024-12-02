@@ -1,14 +1,15 @@
 body {
-    background-color: #000; 
-    color: #fff; 
+    background-color: #000;
+    color: #fff;
     font-family: 'Ubuntu Mono', monospace;
     margin: 0;
     padding: 0;
 
 }
+
 .navbar {
-    background-color: #111; 
-    box-shadow: 0 4px 8px rgba(255, 255, 255, 0.1); 
+    background-color: #111;
+    box-shadow: 0 4px 8px rgba(255, 255, 255, 0.1);
     border-radius: 8px;
     padding: 10px 20px;
     text-shadow: -1px 0 #000, 0 1px #000, 1px 0 #000, 0 -1px #000;
@@ -17,6 +18,7 @@ body {
 .navbar .navbar-brand:hover {
     text-shadow: -1px 0 whitesmoke, 0 1px white, 1px 0 white, 0 -1px white;
 }
+
 .game-title {
     font-size: 3rem;
     font-weight: 700;
@@ -36,6 +38,7 @@ body {
     background-color: #555;
     transform: scale(1.05);
 }
+
 .btn {
     border: 2px solid #fff;
     border-radius: 8px;
@@ -53,11 +56,14 @@ body {
     color: #000;
     transform: scale(1.05);
 }
+
 .scores {
     background-color: #111;
     border: 2px solid #fff;
     border-radius: 12px;
-    padding: 20px;}
+    padding: 20px;
+}
+
 .gameUi {
     background-color: #000;
     border: 2px solid #fff;
@@ -73,13 +79,14 @@ body {
     border-radius: 8px;
     width: 100%;
     margin-bottom: 15px;
-}   
+}
+
 #user-inputs button {
     width: 100%;
 }
 
 #feedback {
-    color: #ff5757; 
+    color: #ff5757;
     font-weight: bold;
 }
 
@@ -104,6 +111,7 @@ body {
     color: #fff;
     padding: 10px;
 }
+
 #cheat-button {
     background-color: #ff5757;
     border: 2px solid #fff;
@@ -116,18 +124,20 @@ body {
     font-size: 1.2rem;
     color: #fff;
 }
+
 .modal-content {
     background-color: #111;
     color: #fff;
     border: 2px solid #fff;
 }
 
-.modal-header, .modal-footer {
+.modal-header,
+.modal-footer {
     border: none;
 }
 
 .btn-close {
-    filter: invert(1); 
+    filter: invert(1);
 }
 
 .rowbg {
@@ -135,7 +145,7 @@ body {
     border: 2px solid #fff;
     border-radius: 12px;
     padding: 20px;
-    min-height: 60vh;
+    min-height: 30vh;
 }
 
 #user-guess::placeholder {
@@ -147,6 +157,7 @@ body {
     color: #656565;
     opacity: 1;
 }
+
 .correct {
     color: #32CD32
 }
