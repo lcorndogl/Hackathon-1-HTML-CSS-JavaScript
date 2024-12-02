@@ -1,19 +1,80 @@
+# [Deployment Link](https://lcorndogl.github.io/Hackathon1-Wheel-of-Fortune/ "Link to the live deployment")
+
 ## Contents
+
+- [Proposal](#proposal)
+- [AI](#ai)
+  - [Integration](#integration)
+  - [Codeing-with-AI](#codeing-with-ai)
+- [User-Experience](#user-experience)
+  - [User-Stories](#user-stories)
+  - [Wireframing](#wireframing)
+- [Future-Features](#future-features)
+  - [Implemented](#implemented)
+  - [To-Implement](#to-implement)
+- [Design](#design)
+- [Features](#features)
+- [Deployment](#deployment)
+- [Bugs](#bugs)
+  - [Resolved](#resolved)
+  - [Unresolved](#unresolved)
+- [Technologies-Used](#technologies-used)
+  - [HTML](#html)
+  - [CSS](#css)
+  - [JavaScript](#javascript)
+  - [Git](#git)
+  - [GitHub](#github)
+  - [Visual-Studio-Code](#visual-studio-code)
+  - [CoPilot](#copilot)
+  - [bash-terminal](#bash-terminal)
+  - [nano](#nano)
+- [Testing](#testing)
+  - [Console Logs](#console-logs)
+  - [Troubleshooting](#troubleshooting)
+    - [AI Suggesting code doesn't included folder file paths](#ai-suggesting-code-doesnt-included-folder-file-paths)
+    - [AI Resolving logic issue (Loop check)](#ai-resolving-logic-issue-loop-check)
+  - [Responsivity Images](#responsivity-images)
+  - [Validation](#validation)
+    - [HTML-Validation](#html-validation)
+    - [CSS-Validation](#css-validation)
+    - [JavaScript-Validation](#javascript-validation)
+    - [Wave-Validation](#wave-validation)
+  - [Lighthouse Scores](#lighthouse-scores)
+    - [Mobile-Lighthouse-Score](#mobile-lighthouse-score)
+    - [Desktop-Lighthouse-Score](#desktop-lighthouse-score)
+- [Credits](#credits)
 
 ## Proposal
 
 We will create a text-phrase guessing game. The game will present an common, idiomatic phrase, and the user will guess vowels and consonants, or attempt to guess the phrase as a whole. Guesses will be tracked, and a score calculated at depending on how many letters were guessed before the correct answer was arrived at.
 
-## AI Integration
+## AI
+
+### Integration
 
 As a useful tool for sampling a zeitgeist of English text, ai was helpful for presenting uncommon and common idiomatic phrases.
-Ai was also used to assist with generating user stories, the content generated was hand edited for suitability.
 
-## User Experience
+AI was also used to assist with generating user stories, the content generated was hand edited for suitability.
 
-### User Stories
+AI was also used to generate the questions and answers that were used in the arrays - Manually validated and adjusted some answers which were not as expected to ensure the answers are correct.
 
-As a user I want to be able to generate questions that show up on screen, and guess what the answer is - wheel of fortune style
+### Codeing-with-AI
+
+This if test was one entirely derived by ai, along with the plan arrived at to refine the first solution we arrived at
+
+![Ai_code_plan](docs/Promptexample.png)
+
+![CSS Linking prompted](docs/bugs/CssAifile2.png)
+
+The above demonstrates Copilot missing a linked asset, and taking it's best guess at the filepath for the local CSS. This is a persistent issue with ai-generated links as demonstrated below.
+
+![JS Linking prompted](docs/bugs/JsAifile1.png)
+
+## User-Experience
+
+### User-Stories
+
+As a user I want to be able to generate questions that show up on screen, and guess what the answer is - wheel of fortune style.
 
 As a user I want to be able to see which letters I have already guessed.
 
@@ -35,21 +96,15 @@ Demonstrations of the scalability of the site to larger devices are wireframed b
 
 ![Wireframe4](docs/image_2024-11-27_142015802_720.png)
 
-## Coding with AI
-
-This if test was one entirely derived by ai, along with the plan arrived at to refine the first solution we arrived at
-
-![Ai_code_plan](docs/Promptexample.png)
-
-## Future Features
+## Future-Features
 
 ### Implemented
 
-High score tracking
+High score tracking.
 
-Letters guessed colour coding - green for correct and red for incorrect
+Letters guessed colour coding - green for correct and red for incorrect.
 
-### To Implement
+### To-Implement
 
 Add in a spinning wheel that has various sections to multiply the score for the next attempt/give random letters etc.
 
@@ -65,12 +120,31 @@ Graphing methods for scores over time could also be investigated and implemented
 
 ## Design
 
-Abdulmajeed
+We selected a black and white simplistic theme, to resemble the simplicity of the game we were creating. The title in the navbar was a real struggle, looking at the wireframes, we planned for the title to be at the centre of the page but unfortunatly we was not able implement that so we had to innovate with what we had been given and we used AI to add an hover effect to the title only revealing the title when it is hovered over but when off it stays transparent to remove the sense of the title not being in the correct place.  The border sizes was done using AI to save time from trial and error. All buttons was styled to be unique since each one serves its own function and 1 is not related to the other. Font sizes we decided on when planning our project, we was on the look out for more simple retro game style fonts to match the theme.
 
 ## Features
 
+Instructions Modal for the user to see how to play the game.
 
+Randomly selected question.
 
+Guesses displayed on screen.
+
+Letters used are updated and colour coded for correct/incorrect guesses.
+
+Feedback to the user in case of guesses (Correct/Incorrect/Invalid).
+
+Scores for correct guesses, per letter and a bigger amount for guessing the whole phrase.
+
+Previous 3 games are tracked.
+
+Highscore is tracked across a single session.
+
+New Game button resets the game area to the start condition and updates the previous score/high score (if applicable)
+
+Buttons react on hover so the user knows it will be the one they click.
+
+Next Question button so the user can continue their currrent game. (Validated so it can only be used after a question is solved).
 
 ## Deployment
 
@@ -92,21 +166,33 @@ Low Contrast Cheat Button - Added text shadow around for contrast.
 
 Skipped heading - Set to h1 and used the class of the relevant heading for formatting.
 
-Casting the lower or upper case to the method that passed red or green classes to the DOM behaved incorrectly colouring a correct guess red when it's case differed. - Casted to lowerCase with toLowerCase for checks in line with the rest of the code.
+Casting the lower or upper case to the method that passed red or green classes to the DOM behaved incorrectly colouring a correct guess red when it's case differed - Casted to lowerCase with toLowerCase for checks in line with the rest of the code.
+
+Next question button can be used at will - Added a boolean to say whether triggering the next question method is allowed behind the scenes.
+
+User can repeadly make the same guess to farm score - Added validation to ensure that the guess entered is not already used, in the case of guessing the full word if the entire answer is already displayed on screen provide feedback informing the user they already solved the question.
 
 ### Unresolved
 
 All known bugs are resolved
 
-## Technologies Used
+## Technologies-Used
 
 ### HTML
 
-Basic HTML was used to create the various areas of the page
+Basic HTML was used to create the various areas of the page.
 
 ### CSS
 
+CSS was used to create the styling for the page layout, including several classes and IDs that the JavaScript adds and removes from the HTML depending on the inputs.
+
 ### JavaScript
+
+JavaScript was used to cater to all of the back end functionality of the project and provide the interactivity for the user. This includes but is not limited to:
+
+Get question/answer pairs.
+
+Validate Guesses (Single character/Guess entire phrase - presenting error on invalid inputs (Non-alphabetic/Non-space special characters))
 
 ### Git
 
@@ -118,7 +204,7 @@ GitHub has been used as a repository for the code allowing all team members the 
 
 GitHub was also used for the deployment of the website, allowing it to be accessed from anywhere with an internet connection.
 
-### Visual Studio Code
+### Visual-Studio-Code
 
 Visual Studio Code has been used to create the project, allowing for the use of emmet commands as well as CoPilot integration to provide feedback on code snippets and suggestions whilst writing code.
 
@@ -126,29 +212,95 @@ Visual Studio Code has been used to create the project, allowing for the use of 
 
 CoPilot has been used for code suggestions, as well as troubleshooting logic occasionally when a statement or loop isn't working as expected in the code.
 
-### bash terminal
+### bash-terminal
 
-Bash terminal was used for adding and commiting files, as well as swapping between branches, merging between branches and easy structure/
+Bash terminal was used for adding and commiting files, as well as swapping between branches, merging between branches and easy structure/file creation (mkdir/touch).
 
 ### nano
 
+NaNo was used to efficiently present merge conflicts for resolution, and also to handle local commit messages upon merging main into the local branch.
+
 ## Testing
+
+### Console Logs
+
+Console logs were originally scattered around the JavaScript code salt-bae style to assist in seeing what code was executing, where it was breaking & that the logic was functioning as expected. These console.logs were removed at the end of the project as it was not necessary for the functioning of the project and was just used to see what was happening behind the scenes during the development phase.
 
 ### Troubleshooting
 
-![Wireframe](docs/bugs/CssAifile2.png)
+#### AI Suggesting code doesn't included folder file paths
 
-The above demonstrates Copilot missing a linked asset, and taking it's best guess at the filepath for the local CSS. This is a persistent issue with ai-generated links as demonstrated below.
+CSS:
 
-![Wireframe](docs/bugs/JsAifile1.png)
+![CoPilot suggesting the CSS file locations but only using the root directory](docs/bugs/ai_css2.png "CoPilot giving suggestion but for root directory")
+
+JS:
+
+![CoPilot suggesting the JS file locations but only using the root directory](docs/bugs/ai_js.png "CoPilot giving suggestion but for root directory")
+
+#### AI Resolving logic issue (Loop check)
+
+CoPilot providing fix to issue:
+
+![CoPilot suggesting logic update to perform as expected](docs/bugs/aiValidGuessTshoot1.png "CoPilot giving code to fix the issue")
+
+Trying to modify the code based on the answer CoPilot has written to see if it resolves the issue:
+
+![CoPilot suggesting logic update to perform as expected](docs/bugs/aiValidGuessTshoot2.png "CoPilot giving code to fix the issue")
+
+Giving up and just using the re-written CoPilot logic:
+
+![CoPilot suggesting logic update to perform as expected](docs/bugs/aiValidGuessFix.png "CoPilot giving code to fix the issue")
 
 ### Responsivity Images
 
+[Responsiveness Link](https://ui.dev/amiresponsive?url=https://lcorndogl.github.io/Hackathon1-Wheel-of-Fortune/ "Am I responsive link")
+
+![Am I Responsive Screenshot](docs/audits/am-i-responsive.png "Image of the responsiveness check")
+
 ### Validation
 
+#### HTML-Validation
 
+[HTML Validation Link](https://validator.w3.org/nu/?doc=https%3A%2F%2Flcorndogl.github.io%2FHackathon1-Wheel-of-Fortune%2F)
+
+![HTML Validation](docs/audits/validation-html.png "Error Check from https://validator.w3.org/nu/?doc=https%3A%2F%2Flcorndogl.github.io%2FHackathon1-Wheel-of-Fortune%2F")
+
+#### CSS-Validation
+
+[CSS Validation Link](https://jigsaw.w3.org/css-validator/validator?uri=https%3A%2F%2Flcorndogl.github.io%2FHackathon1-Wheel-of-Fortune%2F&profile=css3svg&usermedium=all&warning=1&vextwarning=&lang=en)
+
+![CSS Validation](docs/audits/validation-css.png "Error Check from https://jigsaw.w3.org/css-validator/validator?uri=https%3A%2F%2Flcorndogl.github.io%2FHackathon1-Wheel-of-Fortune%2F&profile=css3svg&usermedium=all&warning=1&vextwarning=&lang=en")
+
+#### JavaScript-Validation
+
+[JS Validation Link](https://jshint.com)
+
+![HTML Validation](docs/audits/validation-js.png "Error Check from https://jshint.com")
+
+#### Wave-Validation
+
+[WAVE Validator](https://wave.webaim.org/report#/https://lcorndogl.github.io/Hackathon1-Wheel-of-Fortune/ "Link to the wave validator for the accessibility")
+
+There were several considerations from the WAVE validation which we have reviewed and decided upon the appropriate actions for, these are:
+
+Errors - The error was in relation to an unlabelled form element, however this element is solely used to provide feedback to the user, as such it is supposed to be invisible unless there is any feedback to give to the user which will populate the content via JavaScript.
+
+Contrast Errors - These are returned on the game title and cheat button. We decided the best way to deal with these would be the use of a 1px text-shadow on them to enforce contrast and readability between the text and any possible background. The WAVE validator doesn't seem to take this into account when checking for accessibility as you can't get much more contrasting than white and black.
+
+Possible Heading - This is because the WAVE tool places very high prominence on the user-guess field which it is assuming is an important heading element.
+
+![HTML Validation](docs/audits/validation-WAVE.png "Error Check from https://wave.webaim.org/report#/https://lcorndogl.github.io/Hackathon1-Wheel-of-Fortune/")
 
 ### Lighthouse Scores
+
+#### Mobile-Lighthouse-Score
+
+![Mobile Lighthouse Score](docs/audits/lighthouse-mobile.png "Mobile Lighthouse Score")
+
+#### Desktop-Lighthouse-Score
+
+![Desktop Lighthouse Score](docs/audits/lighthouse-desktop.png "Desktop Lighthouse Score")
 
 ## Credits
 
@@ -157,44 +309,3 @@ The above demonstrates Copilot missing a linked asset, and taking it's best gues
 [MDN Docs - Letter spacing code snippet to ensure there is space between letters without HTML stripping out multiple space character whitespaces](https://developer.mozilla.org/en-US/docs/Web/CSS/letter-spacing)
 
 [Cloud Convert - Image manipulation](https://cloudconvert.com/png-to-webp "Convert image filesize and format to webp")
-
-Considerations from the WAVE validation:
-form unlabelled -
-The form is unlabelled by design, as it is hidden from the user.
-
-Low-contrast header -
-The header text is defined by text-shadow, the colour is identical to the background by design.
-
-Low-contrast cheat button -
-The error is caused by the similarity of the default and hover appearances and can be disregarded. Added a 1px border to the cheat button.
-
-Skipped heading level:
-By design, if we want to insert headings between in future.
-
-Possible heading:
-This refers to the game area, and wasn't styled as a heading.
-
-Considerations from JS validation:
-All of the warnings returned related to versioning, specifically with LET and CONST.
-
-The HTML and CSS validated without error.
-
-
-
-Design - We selected a black and white simplistic theme, to resemble the simplicity of the game we were creating. The title in the navbar was a real struggle, looking at the wireframes, we planned for the title to be at the centre of the page but unfortunatly we was not able implement that so we had to innovate with what we had been given and we used AI to add an hover effect to the title only revealing the title when it is hovered over but when off it stays transparent to remove the sense of the title not being in the correct place.  The border sizes was done using AI to save time from trial and error. All buttons was styled to be unique since each one serves its own function and 1 is not related to the other. Font sizes we decided on when planning our project, we was on the look out for more simple retro game style fonts to match the theme.
-Features - Gameplay
-Future Features - Mostly implemented (as a stretch goal, ie: colours)
--- Score Persistence
--- Some responsiveness tidy up
-
-Technologies User - Copy pasta
-
-Deployment - Deployment Section
-
-Testing
---validation
---lighthouse
--- console logs as building to ensure triggers (now removed as tidy up exercise)
-
-
-Credits - Exists
