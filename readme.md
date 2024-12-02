@@ -67,3 +67,11 @@ A timer could be added to the game for a more configurable challenge. This could
 [Cloud Convert - Image manipulation](https://cloudconvert.com/png-to-webp "Convert image filesize and format to webp")
 
 [aiIntegrationDefinition]: #AI
+
+Future features: A number of things that were proposed as future features or stretch goal were implemented, such as high score 
+tracking, previous attempted letters being colour coded. 
+Future features that could still be implemented with more time and integration of additional technologies include use of cookies to 
+makes scores persistent across sessions, or use of a backend server to allow users to create accounts, allowing them to track their 
+scores across multiple sessions and devices.
+Other features could include social media integration, and the use of APIs to post scores to social media platforms automatically.
+Graphing methods for scores over time could also be investigated and implemented.
