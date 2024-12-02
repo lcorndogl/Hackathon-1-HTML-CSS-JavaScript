@@ -1,11 +1,5 @@
 ## Contents
 
--[proposal](#proposal)
-
--[ai integration][AI]
-
--[wireframing](#wireframing)
-
 ## Proposal
 
 We will create a text-phrase guessing game. The game will present an common, idiomatic phrase, and the user will guess vowels and consonants, or attempt to guess the phrase as a whole. Guesses will be tracked, and a score calculated at depending on how many letters were guessed before the correct answer was arrived at.
@@ -15,7 +9,19 @@ We will create a text-phrase guessing game. The game will present an common, idi
 As a useful tool for sampling a zeitgeist of English text, ai was helpful for presenting uncommon and common idiomatic phrases.
 Ai was also used to assist with generating user stories, the content generated was hand edited for suitability.
 
-## Wireframing
+## User Experience
+
+### User Stories
+
+As a user I want to be able to generate questions that show up on screen, and guess what the answer is - wheel of fortune style
+
+As a user I want to be able to see which letters I have already guessed.
+
+As a used I want to my current score and previous scores, along with the best score achieved.
+
+As a user I want to be able to play the game on any device.
+
+### Wireframing
 
 ![wireframe](docs/image_2024-11-27_123117416.png)
 
@@ -45,8 +51,34 @@ This if test was one entirely derived by ai, along with the plan arrived at to r
 
 ## Future Features
 
-The game could have a login funtion, to allow users to track their all-time high scores, and keep a record of successful and unsuccesful solves.
+### Implemented
+
+High score tracking
+
+Letters guessed colour coding - green for correct and red for incorrect
+
+### To Implement
+
+Add in a spinning wheel that has various sections to multiply the score for the next attempt/give random letters etc.
+
+Adjust letters used to be an available letters - with black letters being unused, green being correct and red being incorrect.
+
 A timer could be added to the game for a more configurable challenge. This could also be tracked across users, and used to generate leaderboards based on fastest times and highest scores.
+
+Use of cookies to makes scores persistent across sessions, or use of a backend server to allow users to create accounts, allowing them to track their scores across multiple sessions and devices.
+
+Other features could include social media integration, and the use of APIs to post scores to social media platforms automatically.
+
+Graphing methods for scores over time could also be investigated and implemented.
+
+## Design
+
+Abdulmajeed
+
+## Features
+
+
+
 
 ## Deployment
 
@@ -66,17 +98,6 @@ A timer could be added to the game for a more configurable challenge. This could
 
 [Cloud Convert - Image manipulation](https://cloudconvert.com/png-to-webp "Convert image filesize and format to webp")
 
-[aiIntegrationDefinition]: #AI
-
-Future features: A number of things that were proposed as future features or stretch goal were implemented, such as high score 
-tracking, previous attempted letters being colour coded. 
-Future features that could still be implemented with more time and integration of additional technologies include use of cookies to 
-makes scores persistent across sessions, or use of a backend server to allow users to create accounts, allowing them to track their 
-scores across multiple sessions and devices.
-Other features could include social media integration, and the use of APIs to post scores to social media platforms automatically.
-Graphing methods for scores over time could also be investigated and implemented.
-
-
 Considerations from the WAVE validation:
 form unlabelled -
 The form is unlabelled by design, as it is hidden from the user.
@@ -85,9 +106,9 @@ Low-contrast header -
 The header text is defined by text-shadow, the colour is identical to the background by design.
 
 Low-contrast cheat button -
-The error is caused by the similarity of the default and hover appearances and can be disregarded. Added a 1px border to the cheat button. 
+The error is caused by the similarity of the default and hover appearances and can be disregarded. Added a 1px border to the cheat button.
 
-Skipped heading level: 
+Skipped heading level:
 By design, if we want to insert headings between in future.
 
 Possible heading:
@@ -96,9 +117,27 @@ This refers to the game area, and wasn't styled as a heading.
 Considerations from JS validation:
 All of the warnings returned related to versioning, specifically with LET and CONST.
 
-The HTML and CSS validated without error. 
+The HTML and CSS validated without error.
 
-
-Bug report FIXED: Casting the lower or upper case to the method that passed red or green classes to the DOM behaved incorrectly, 
+Bug report FIXED: Casting the lower or upper case to the method that passed red or green classes to the DOM behaved incorrectly,
 colouring a correct guess red when it's case differed.
--This bug was fixed with use of toLowerCase in the last stages of development. 
+-This bug was fixed with use of toLowerCase in the last stages of development.
+
+
+Design - Abdulmajeed
+Features - Gameplay
+Future Features - Mostly implemented (as a stretch goal, ie: colours)
+-- Score Persistence
+-- Some responsiveness tidy up
+Technologies User - Copy pasta
+
+Deployment - Deployment Section
+
+Testing
+--validation
+--lighthouse
+-- console logs as building to ensure triggers (now removed as tidy up exercise)
+
+Bugs - 
+
+Credits - Exists
