@@ -35,14 +35,6 @@ Demonstrations of the scalability of the site to larger devices are wireframed b
 
 ![Wireframe4](docs/image_2024-11-27_142015802_720.png)
 
-## Troubleshooting
-
-![Wireframe](docs/bugs/CssAifile2.png)
-
-The above demonstrates Copilot missing a linked asset, and taking it's best guess at the filepath for the local CSS. This is a persistent issue with ai-generated links as demonstrated below.
-
-![Wireframe](docs/bugs/JsAifile1.png)
-
 ## Coding with AI
 
 This if test was one entirely derived by ai, along with the plan arrived at to refine the first solution we arrived at
@@ -90,6 +82,74 @@ Abdulmajeed
 [Link to Deployed Site](https://lcorndogl.github.io/Hackathon1-Wheel-of-Fortune/)
 ![Deployed Project Check](docs/github-deployed.png "GitHub Pages Deployment Check")
 
+## Bugs
+
+### Resolved
+
+Low Contrast Header - Added text shadow around for contrast.
+
+Low Contrast Cheat Button - Added text shadow around for contrast.
+
+Skipped heading - Set to h1 and used the class of the relevant heading for formatting.
+
+Casting the lower or upper case to the method that passed red or green classes to the DOM behaved incorrectly colouring a correct guess red when it's case differed. - Casted to lowerCase with toLowerCase for checks in line with the rest of the code.
+
+### Unresolved
+
+All known bugs are resolved
+
+## Technologies Used
+
+### HTML
+
+Basic HTML was used to create the various areas of the page
+
+### CSS
+
+### JavaScript
+
+### Git
+
+Git was used for the versioning of the project. We also utilised the branch feature to prevent working on the main branch, and merging into it regularly to ensure the central code was up to date between all of us.
+
+### GitHub
+
+GitHub has been used as a repository for the code allowing all team members the one version of the truth with the main branch - as this was locked down to prevent working on main as well.
+
+GitHub was also used for the deployment of the website, allowing it to be accessed from anywhere with an internet connection.
+
+### Visual Studio Code
+
+Visual Studio Code has been used to create the project, allowing for the use of emmet commands as well as CoPilot integration to provide feedback on code snippets and suggestions whilst writing code.
+
+### CoPilot
+
+CoPilot has been used for code suggestions, as well as troubleshooting logic occasionally when a statement or loop isn't working as expected in the code.
+
+### bash terminal
+
+Bash terminal was used for adding and commiting files, as well as swapping between branches, merging between branches and easy structure/
+
+### nano
+
+## Testing
+
+### Troubleshooting
+
+![Wireframe](docs/bugs/CssAifile2.png)
+
+The above demonstrates Copilot missing a linked asset, and taking it's best guess at the filepath for the local CSS. This is a persistent issue with ai-generated links as demonstrated below.
+
+![Wireframe](docs/bugs/JsAifile1.png)
+
+### Responsivity Images
+
+### Validation
+
+
+
+### Lighthouse Scores
+
 ## Credits
 
 [Stack Overflow - How to form an array of question/answer pairs](https://stackoverflow.com/questions/37252041/storing-quiz-questions-in-array-of-objects)
@@ -119,9 +179,6 @@ All of the warnings returned related to versioning, specifically with LET and CO
 
 The HTML and CSS validated without error.
 
-Bug report FIXED: Casting the lower or upper case to the method that passed red or green classes to the DOM behaved incorrectly,
-colouring a correct guess red when it's case differed.
--This bug was fixed with use of toLowerCase in the last stages of development.
 
 
 Design - Abdulmajeed
@@ -129,6 +186,7 @@ Features - Gameplay
 Future Features - Mostly implemented (as a stretch goal, ie: colours)
 -- Score Persistence
 -- Some responsiveness tidy up
+
 Technologies User - Copy pasta
 
 Deployment - Deployment Section
@@ -138,6 +196,5 @@ Testing
 --lighthouse
 -- console logs as building to ensure triggers (now removed as tidy up exercise)
 
-Bugs - 
 
 Credits - Exists
