@@ -75,3 +75,20 @@ makes scores persistent across sessions, or use of a backend server to allow use
 scores across multiple sessions and devices.
 Other features could include social media integration, and the use of APIs to post scores to social media platforms automatically.
 Graphing methods for scores over time could also be investigated and implemented.
+
+
+Considerations from the WAVE validation:
+form unlabelled -
+The form is unlabelled by design, as it is hidden from the user.
+
+Low-contrast header -
+The header text is defined by text-shadow, the colour is identical to the background by design.
+
+Low-contrast cheat button -
+The error is caused by the similarity of the default and hover appearances and can be disregarded. Added a 1px border to the cheat button. 
+
+Skipped heading level: 
+By design, if we want to insert headings between in future.
+
+Possible heading:
+This refers to the game area, and wasn't styled as a heading.
