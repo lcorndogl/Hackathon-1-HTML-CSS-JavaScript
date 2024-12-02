@@ -269,190 +269,200 @@ function updateCurrentScoreDisplay() {
 }
 function updateLettersUsedDisplay() {
     // Update the letters guessed in alphabetical order - Thanks steve for the sort idea!
-    document.getElementById("letters-used").innerText = guessedLetters.sort().join(", ");
-}
+    //document.getElementById("letters-used").innerText = guessedLetters.sort().join(", ");
 
-function updateHighScoreDisplay() {
-    // Update the current score display
+    let span = document.createElement('letters-used'); // Generate the HTML with styled letters 
+    let lettersHtml = guessedLetters.map(letter => { 
+        if (answer.includes(letter)) { 
+            alert('Letter is in the answer');
+            return `<span style="color: green;">${letter}</span>`; 
+        } else { 
+            return `<span style="color: red;">${letter}</span>`; 
+        } }).join(''); 
+        span.innerHTML = lettersHtml; 
+        container.appendChild(span);
+    }
+    function updateHighScoreDisplay() {
+        // Update the current score display
 
-    document.getElementById('high-score').innerText = highScore;
+        document.getElementById('high-score').innerText = highScore;
 
-}
-
-
-/** This function should be run when the user makes a guess
- * Guesses should be triggered by clicking the enter key
- * This function should check if the guess is correct and display the result
- */
-function guessAnswer(guess) {
-    // Check if the question has already been answered
-    //to prevent the user from repeatedly answering the same question for points
-    if (allowNextQuestion) {
-        updateFeedback('You have already solved this question');
-        return;
     }
 
-    // Arrays containing the vowels and consonants
-    const vowels = ['a', 'e', 'i', 'o', 'u'];
-    const consonants = ['b', 'c', 'd', 'f', 'g', 'h', 'j', 'k', 'l', 'm', 'n', 'p', 'q', 'r', 's', 't', 'v', 'w', 'x', 'y', 'z'];
-    //Array of valid guesses
-    const validGuess = [].concat(vowels, consonants, " ");
 
-    // Reset feedback elements on next user action
-    document.getElementById('cheat-button').innerText = 'Cheat';
-    updateFeedback('<br>');
-    console.log(guess)
-
-    //check if the guess is valid
-    // check that the guess is not an empty string
-    if (guess.length === 0) {
-        updateFeedback("Guesses cannot be blank");
-        console.log('Space');
-        return;
-    }
-    // check that the guess is a valid character
-    for (let char of guess) {
-        if (!validGuess.includes(char.toLowerCase())) {
-            console.log('Invalid guess');
-            updateFeedback('Invalid guess - only letters are valid guesses unless you are guessing the entire answer where spaces are also valid');
+    /** This function should be run when the user makes a guess
+     * Guesses should be triggered by clicking the enter key
+     * This function should check if the guess is correct and display the result
+     */
+    function guessAnswer(guess) {
+        // Check if the question has already been answered
+        //to prevent the user from repeatedly answering the same question for points
+        if (allowNextQuestion) {
+            updateFeedback('You have already solved this question');
             return;
         }
-        console.log(guess.length);
-        console.log("Char check ran");
 
-    }
+        // Arrays containing the vowels and consonants
+        const vowels = ['a', 'e', 'i', 'o', 'u'];
+        const consonants = ['b', 'c', 'd', 'f', 'g', 'h', 'j', 'k', 'l', 'm', 'n', 'p', 'q', 'r', 's', 't', 'v', 'w', 'x', 'y', 'z'];
+        //Array of valid guesses
+        const validGuess = [].concat(vowels, consonants, " ");
 
-    // check if the user's guess is a vowel, if it is subtract 50 points from the user's score
-    if (vowels.includes(guess.toLowerCase())) {
-        console.log('Vowel');
-        if (currentScore >= 50) {
-            currentScore -= 50;
-        } else {
-            updateFeedback('Not enough points - Vowels cost 50 points');
-            console.log('Not enough points');
+        // Reset feedback elements on next user action
+        document.getElementById('cheat-button').innerText = 'Cheat';
+        updateFeedback('<br>');
+        console.log(guess)
+
+        //check if the guess is valid
+        // check that the guess is not an empty string
+        if (guess.length === 0) {
+            updateFeedback("Guesses cannot be blank");
+            console.log('Space');
             return;
         }
-    } else {
-        console.log('Consonant');
-    }
-
-    // Checks if the user has guessed the entire answer
-    console.log(guess.trim());
-    if (guess.trim().length > 1) {
-        // Check if the answer is correct and display Solved or Incorrect
-        if (guess.toLowerCase() === answer.toLowerCase()) {
-            // guessedAnswer = answer;
-
-            updateQuestionDisplay();
-            updateFeedback('SOLVED!');
-            console.log('SOLVED!');
-            let awardScore = (1000 - guessedLetters.length ** 2 - guessedLetters.length * 100);
-            if (awardScore < 0) {
+        // check that the guess is a valid character
+        for (let char of guess) {
+            if (!validGuess.includes(char.toLowerCase())) {
+                console.log('Invalid guess');
+                updateFeedback('Invalid guess - only letters are valid guesses unless you are guessing the entire answer where spaces are also valid');
                 return;
             }
-            currentScore += awardScore;
-            updateCurrentScoreDisplay();
-            allowNextQuestion = true;
-            revealAnswer(guess.toLowerCase());
-        } else {
-            updateFeedback('Incorrect - Guess again!');
-            console.log('INCORRECT!');
-        }
-    } else {
-        // check if the user has already guessed that letter, if they have display an error
-        console.log(guessedLetters);
-        if (guessedLetters.includes(guess.toLowerCase())) {
-            updateFeedback('You have already guessed that letter, please try another');
-            console.log('You have already guessed that letter');
-            return;
-        } else {
-            guessedLetters.push(guess.toLowerCase());
-            console.log(guessedLetters);
+            console.log(guess.length);
+            console.log("Char check ran");
+
         }
 
-        // check if the user's guess is in the answer, if it is reveal the letter in the answer
-        if (answer.toLowerCase().includes(guess.toLowerCase())) {
-            revealLetter(guess.toLowerCase())
-            currentScore += 100;
-        } else {
-            console.log('Incorrect guess');
-            currentScore -= 50;
-        }
-        // check if the user has guessed the entire answer
-        for (char of answer) {
-            if (guessedAnswer.includes("_")) {
-                console.log('Not solved');
-                return;
+        // check if the user's guess is a vowel, if it is subtract 50 points from the user's score
+        if (vowels.includes(guess.toLowerCase())) {
+            console.log('Vowel');
+            if (currentScore >= 50) {
+                currentScore -= 50;
             } else {
+                updateFeedback('Not enough points - Vowels cost 50 points');
+                console.log('Not enough points');
+                return;
+            }
+        } else {
+            console.log('Consonant');
+        }
+
+        // Checks if the user has guessed the entire answer
+        console.log(guess.trim());
+        if (guess.trim().length > 1) {
+            // Check if the answer is correct and display Solved or Incorrect
+            if (guess.toLowerCase() === answer.toLowerCase()) {
+                // guessedAnswer = answer;
+
+                updateQuestionDisplay();
                 updateFeedback('SOLVED!');
                 console.log('SOLVED!');
+                let awardScore = (1000 - guessedLetters.length ** 2 - guessedLetters.length * 100);
+                if (awardScore < 0) {
+                    return;
+                }
+                currentScore += awardScore;
                 updateCurrentScoreDisplay();
                 allowNextQuestion = true;
+                revealAnswer(guess.toLowerCase());
+            } else {
+                updateFeedback('Incorrect - Guess again!');
+                console.log('INCORRECT!');
+            }
+        } else {
+            // check if the user has already guessed that letter, if they have display an error
+            console.log(guessedLetters);
+            if (guessedLetters.includes(guess.toLowerCase())) {
+                updateFeedback('You have already guessed that letter, please try another');
+                console.log('You have already guessed that letter');
+                return;
+            } else {
+                guessedLetters.push(guess.toLowerCase());
+                console.log(guessedLetters);
+            }
+
+            // check if the user's guess is in the answer, if it is reveal the letter in the answer
+            if (answer.toLowerCase().includes(guess.toLowerCase())) {
+                revealLetter(guess.toLowerCase())
+                currentScore += 100;
+            } else {
+                console.log('Incorrect guess');
+                currentScore -= 50;
+            }
+            // check if the user has guessed the entire answer
+            for (char of answer) {
+                if (guessedAnswer.includes("_")) {
+                    console.log('Not solved');
+                    return;
+                } else {
+                    updateFeedback('SOLVED!');
+                    console.log('SOLVED!');
+                    updateCurrentScoreDisplay();
+                    allowNextQuestion = true;
+                }
             }
         }
     }
-}
 
-/** This function checks how many times a guess is found in the answer
-* It updates the guessedAnswers with the letters guessed and calls the function to update this one screen
-*/
-function revealLetter(guess) {
-    // Creates array to store the locations the guessed letter occurs at
+    /** This function checks how many times a guess is found in the answer
+    * It updates the guessedAnswers with the letters guessed and calls the function to update this one screen
+    */
+    function revealLetter(guess) {
+        // Creates array to store the locations the guessed letter occurs at
 
-    positions = [];
-    let i = 0;
-    // checks if the guessed character occurs at each position in the answer
-    for (char of answer) {
-        if (char.toLowerCase() === guess.toLowerCase()) {
-            // Pushes the position number into the positions array each time the guessed letter is found
-            positions.push(i);
+        positions = [];
+        let i = 0;
+        // checks if the guessed character occurs at each position in the answer
+        for (char of answer) {
+            if (char.toLowerCase() === guess.toLowerCase()) {
+                // Pushes the position number into the positions array each time the guessed letter is found
+                positions.push(i);
+            }
+            i++;
+            console.log(positions);
         }
-        i++;
-        console.log(positions);
-    }
-    for (i of positions) {
-        guessedAnswer[i] = answer[i];
-    }
-    updateQuestionDisplay();
-    updateCurrentScoreDisplay();
-}
-
-function revealAnswer(guess) {
-    // Updates the guessedAnswer array with the correct answer
-    let i = 0;
-    for (char of answer) {
-        guessedAnswer[i] = char;
-        i++;
-    }
-    updateQuestionDisplay();
-    updateCurrentScoreDisplay();
-}
-
-/** This function should be run when the user clicks the cheat button
- * It should check if the user has enough points/hearts to cheat
- * If the user does it will reveal a letter of the answer
- */
-function cheat() {
-    let stillBlank = [];
-    //create an array of the positions of the blank spaces in guessedAnswer
-
-    for (let i = 0; i < guessedAnswer.length; i++) {
-        if (guessedAnswer[i] === "_") {
-            stillBlank.push(i);
+        for (i of positions) {
+            guessedAnswer[i] = answer[i];
         }
-        console.log(stillBlank);
+        updateQuestionDisplay();
+        updateCurrentScoreDisplay();
     }
-    let randomPos = Math.floor(Math.random() * stillBlank.length);
-    let cheatCharPos = stillBlank[randomPos];
 
-    let cheatChar = answer[cheatCharPos];
-    revealLetter(cheatChar);
-    //Add the cheat letter to the guessed letters array
-    guessedLetters.push(cheatChar);
-    updateLettersUsedDisplay();
+    function revealAnswer(guess) {
+        // Updates the guessedAnswer array with the correct answer
+        let i = 0;
+        for (char of answer) {
+            guessedAnswer[i] = char;
+            i++;
+        }
+        updateQuestionDisplay();
+        updateCurrentScoreDisplay();
+    }
 
-    //Update guessedAnswer with the cheat letter
-    guessedAnswer[cheatCharPos] = cheatChar;
+    /** This function should be run when the user clicks the cheat button
+     * It should check if the user has enough points/hearts to cheat
+     * If the user does it will reveal a letter of the answer
+     */
+    function cheat() {
+        let stillBlank = [];
+        //create an array of the positions of the blank spaces in guessedAnswer
 
-    //If the revealLetter function also adds score, this function will do an appropriate subtraction imediately below
-}
+        for (let i = 0; i < guessedAnswer.length; i++) {
+            if (guessedAnswer[i] === "_") {
+                stillBlank.push(i);
+            }
+            console.log(stillBlank);
+        }
+        let randomPos = Math.floor(Math.random() * stillBlank.length);
+        let cheatCharPos = stillBlank[randomPos];
+
+        let cheatChar = answer[cheatCharPos];
+        revealLetter(cheatChar);
+        //Add the cheat letter to the guessed letters array
+        guessedLetters.push(cheatChar);
+        updateLettersUsedDisplay();
+
+        //Update guessedAnswer with the cheat letter
+        guessedAnswer[cheatCharPos] = cheatChar;
+
+        //If the revealLetter function also adds score, this function will do an appropriate subtraction imediately below
+    }
