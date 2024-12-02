@@ -2,6 +2,48 @@
 
 ## Contents
 
+- [Proposal](#proposal)
+- [AI](#ai)
+  - [Integration](#integration)
+  - [Codeing-with-AI](#codeing-with-ai)
+- [User-Experience](#user-experience)
+  - [User-Stories](#user-stories)
+  - [Wireframing](#wireframing)
+- [Future-Features](#future-features)
+  - [Implemented](#implemented)
+  - [To-Implement](#to-implement)
+- [Design](#design)
+- [Features](#features)
+- [Deployment](#deployment)
+- [Bugs](#bugs)
+  - [Resolved](#resolved)
+  - [Unresolved](#unresolved)
+- [Technologies-Used](#technologies-used)
+  - [HTML](#html)
+  - [CSS](#css)
+  - [JavaScript](#javascript)
+  - [Git](#git)
+  - [GitHub](#github)
+  - [Visual-Studio-Code](#visual-studio-code)
+  - [CoPilot](#copilot)
+  - [bash-terminal](#bash-terminal)
+  - [nano](#nano)
+- [Testing](#testing)
+  - [Console Logs](#console-logs)
+  - [Troubleshooting](#troubleshooting)
+    - [AI Suggesting code doesn't included folder file paths](#ai-suggesting-code-doesnt-included-folder-file-paths)
+    - [AI Resolving logic issue (Loop check)](#ai-resolving-logic-issue-loop-check)
+  - [Responsivity Images](#responsivity-images)
+  - [Validation](#validation)
+    - [HTML-Validation](#html-validation)
+    - [CSS-Validation](#css-validation)
+    - [JavaScript-Validation](#javascript-validation)
+    - [Wave-Validation](#wave-validation)
+  - [Lighthouse Scores](#lighthouse-scores)
+    - [Mobile-Lighthouse-Score](#mobile-lighthouse-score)
+    - [Desktop-Lighthouse-Score](#desktop-lighthouse-score)
+- [Credits](#credits)
+
 ## Proposal
 
 We will create a text-phrase guessing game. The game will present an common, idiomatic phrase, and the user will guess vowels and consonants, or attempt to guess the phrase as a whole. Guesses will be tracked, and a score calculated at depending on how many letters were guessed before the correct answer was arrived at.
@@ -16,15 +58,21 @@ AI was also used to assist with generating user stories, the content generated w
 
 AI was also used to generate the questions and answers that were used in the arrays - Manually validated and adjusted some answers which were not as expected to ensure the answers are correct.
 
-### Codeing with AI
+### Codeing-with-AI
 
 This if test was one entirely derived by ai, along with the plan arrived at to refine the first solution we arrived at
 
 ![Ai_code_plan](docs/Promptexample.png)
 
-## User Experience
+![CSS Linking prompted](docs/bugs/CssAifile2.png)
 
-### User Stories
+The above demonstrates Copilot missing a linked asset, and taking it's best guess at the filepath for the local CSS. This is a persistent issue with ai-generated links as demonstrated below.
+
+![JS Linking prompted](docs/bugs/JsAifile1.png)
+
+## User-Experience
+
+### User-Stories
 
 As a user I want to be able to generate questions that show up on screen, and guess what the answer is - wheel of fortune style.
 
@@ -48,15 +96,15 @@ Demonstrations of the scalability of the site to larger devices are wireframed b
 
 ![Wireframe4](docs/image_2024-11-27_142015802_720.png)
 
-## Future Features
+## Future-Features
 
 ### Implemented
 
-High score tracking
+High score tracking.
 
-Letters guessed colour coding - green for correct and red for incorrect
+Letters guessed colour coding - green for correct and red for incorrect.
 
-### To Implement
+### To-Implement
 
 Add in a spinning wheel that has various sections to multiply the score for the next attempt/give random letters etc.
 
@@ -128,7 +176,7 @@ User can repeadly make the same guess to farm score - Added validation to ensure
 
 All known bugs are resolved
 
-## Technologies Used
+## Technologies-Used
 
 ### HTML
 
@@ -156,7 +204,7 @@ GitHub has been used as a repository for the code allowing all team members the 
 
 GitHub was also used for the deployment of the website, allowing it to be accessed from anywhere with an internet connection.
 
-### Visual Studio Code
+### Visual-Studio-Code
 
 Visual Studio Code has been used to create the project, allowing for the use of emmet commands as well as CoPilot integration to provide feedback on code snippets and suggestions whilst writing code.
 
@@ -164,7 +212,7 @@ Visual Studio Code has been used to create the project, allowing for the use of 
 
 CoPilot has been used for code suggestions, as well as troubleshooting logic occasionally when a statement or loop isn't working as expected in the code.
 
-### bash terminal
+### bash-terminal
 
 Bash terminal was used for adding and commiting files, as well as swapping between branches, merging between branches and easy structure/file creation (mkdir/touch).
 
@@ -180,11 +228,29 @@ Console logs were originally scattered around the JavaScript code salt-bae style
 
 ### Troubleshooting
 
-![Wireframe](docs/bugs/CssAifile2.png)
+#### AI Suggesting code doesn't included folder file paths
 
-The above demonstrates Copilot missing a linked asset, and taking it's best guess at the filepath for the local CSS. This is a persistent issue with ai-generated links as demonstrated below.
+CSS:
 
-![Wireframe](docs/bugs/JsAifile1.png)
+![CoPilot suggesting the CSS file locations but only using the root directory](docs/bugs/ai_css2.png "CoPilot giving suggestion but for root directory")
+
+JS:
+
+![CoPilot suggesting the JS file locations but only using the root directory](docs/bugs/ai_js.png "CoPilot giving suggestion but for root directory")
+
+#### AI Resolving logic issue (Loop check)
+
+CoPilot providing fix to issue:
+
+![CoPilot suggesting logic update to perform as expected](docs/bugs/aiValidGuessTshoot1.png "CoPilot giving code to fix the issue")
+
+Trying to modify the code based on the answer CoPilot has written to see if it resolves the issue:
+
+![CoPilot suggesting logic update to perform as expected](docs/bugs/aiValidGuessTshoot2.png "CoPilot giving code to fix the issue")
+
+Giving up and just using the re-written CoPilot logic:
+
+![CoPilot suggesting logic update to perform as expected](docs/bugs/aiValidGuessFix.png "CoPilot giving code to fix the issue")
 
 ### Responsivity Images
 
@@ -196,19 +262,19 @@ The above demonstrates Copilot missing a linked asset, and taking it's best gues
 
 #### HTML-Validation
 
- [HTML Validation Link](https://validator.w3.org/nu/?doc=https%3A%2F%2Flcorndogl.github.io%2FHackathon1-Wheel-of-Fortune%2F)
+[HTML Validation Link](https://validator.w3.org/nu/?doc=https%3A%2F%2Flcorndogl.github.io%2FHackathon1-Wheel-of-Fortune%2F)
 
 ![HTML Validation](docs/audits/validation-html.png "Error Check from https://validator.w3.org/nu/?doc=https%3A%2F%2Flcorndogl.github.io%2FHackathon1-Wheel-of-Fortune%2F")
 
 #### CSS-Validation
 
- [CSS Validation Link](https://jigsaw.w3.org/css-validator/validator?uri=https%3A%2F%2Flcorndogl.github.io%2FHackathon1-Wheel-of-Fortune%2F&profile=css3svg&usermedium=all&warning=1&vextwarning=&lang=en)
+[CSS Validation Link](https://jigsaw.w3.org/css-validator/validator?uri=https%3A%2F%2Flcorndogl.github.io%2FHackathon1-Wheel-of-Fortune%2F&profile=css3svg&usermedium=all&warning=1&vextwarning=&lang=en)
 
 ![CSS Validation](docs/audits/validation-css.png "Error Check from https://jigsaw.w3.org/css-validator/validator?uri=https%3A%2F%2Flcorndogl.github.io%2FHackathon1-Wheel-of-Fortune%2F&profile=css3svg&usermedium=all&warning=1&vextwarning=&lang=en")
 
 #### JavaScript-Validation
 
- [JS Validation Link](https://jshint.com)
+[JS Validation Link](https://jshint.com)
 
 ![HTML Validation](docs/audits/validation-js.png "Error Check from https://jshint.com")
 
