@@ -147,3 +147,10 @@ body {
     color: #656565;
     opacity: 1;
 }
+.correct {
+    color: #32CD32
+}
+
+.incorrect {
+    color: #ff5757;
+}
